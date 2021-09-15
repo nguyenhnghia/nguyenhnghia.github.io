@@ -13,7 +13,7 @@
 	}
 	&_bio {
 		grid-area: 5/7/10/14;
-		font: 100 calc(0.45 * var(--section-unit)) Poppins;
+		font: 100 calc(0.45 * var(--section-unit)) poppins;
 		z-index: 6;
 		justify-self: start;
 		align-self: center;
@@ -28,7 +28,7 @@
 		.button {
 			display: inline-block;
 			background: transparent;
-			font: 500 calc(0.45 * var(--section-unit)) Poppins;
+			font: 500 calc(0.45 * var(--section-unit)) poppins;
 			user-select: unset;
 			.text {
 				display: flex;
@@ -65,7 +65,7 @@
 		opacity: 0;
 		@include floatY(calc(1 * var(--section-unit)), 0em, forwards, true);
 		.text {
-			font: 100 calc(0.45 * var(--section-unit)) Poppins;
+			font: 100 calc(0.45 * var(--section-unit)) poppins;
 		}
 		.list {
 			display: flex;
@@ -73,7 +73,7 @@
 			gap: calc(0.4 * var(--section-unit));
 			.list_item {
 				.text-tag {
-					font: 300 calc(0.45 * var(--section-unit)) Poppins;
+					font: 300 calc(0.45 * var(--section-unit)) poppins;
 				}
 			}
 		}

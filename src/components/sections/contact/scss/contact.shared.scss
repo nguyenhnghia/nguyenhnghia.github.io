@@ -21,7 +21,7 @@
 	}
 	&_paragraph {
 		grid-area: 7/5/10/11;
-		font: 100 calc(0.45 * var(--section-unit)) Poppins;
+		font: 100 calc(0.45 * var(--section-unit)) poppins;
 		justify-self: center;
 		align-self: center;
 		text-align: center;
@@ -32,7 +32,7 @@
 		.button {
 			display: inline-block;
 			background: transparent;
-			font: 500 calc(0.45 * var(--section-unit)) Poppins;
+			font: 500 calc(0.45 * var(--section-unit)) poppins;
 			user-select: unset;
 			&::before {
 				content: "";

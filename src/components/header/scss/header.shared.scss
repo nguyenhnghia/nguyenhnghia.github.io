@@ -33,7 +33,7 @@
 			animation-duration: 0.4s;
 			.text {
 				display: block;
-				font: 500 calc(0.65 * var(--header-unit)) Poppins;
+				font: 500 calc(0.65 * var(--header-unit)) poppins;
 				user-select: none;
 			}
 			&-active {

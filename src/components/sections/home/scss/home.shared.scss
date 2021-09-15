@@ -28,7 +28,7 @@
 		justify-self: start;
 		align-self: center;
 		text-align: justify;
-		font: 100 calc(0.45 * var(--section-unit)) Poppins;
+		font: 100 calc(0.45 * var(--section-unit)) poppins;
 		z-index: 5;
 		opacity: 0;
 		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);

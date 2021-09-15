@@ -50,13 +50,13 @@
 						opacity: 0;
 						@include scale(0.8, 1, forwards, true);
 						.text-tag {
-							font: 300 calc(0.4 * var(--section-unit)) Poppins;
+							font: 300 calc(0.4 * var(--section-unit)) poppins;
 						}
 					}
 				}
 				.description {
 					text-align: justify;
-					font: 100 calc(0.45 * var(--section-unit)) Poppins;
+					font: 100 calc(0.45 * var(--section-unit)) poppins;
 				}
 			}
 			&_images {
@@ -111,7 +111,7 @@
 				.button {
 					.text {
 						opacity: 0.15;
-						font: 500 calc(0.65 * var(--section-unit)) Poppins;
+						font: 500 calc(0.65 * var(--section-unit)) poppins;
 						padding: 0;
 						&::before {
 							content: "";

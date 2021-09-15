@@ -22,7 +22,7 @@
 					);
 					.button {
 						border-radius: calc(0.45 * var(--header-unit));
-						font: 300 calc(0.45 * var(--header-unit)) Poppins;
+						font: 300 calc(0.45 * var(--header-unit)) poppins;
 						svg {
 							display: none;
 						}
@@ -204,7 +204,7 @@
 						display: flex;
 						justify-content: flex-start;
 						align-items: center;
-						font: 300 calc(0.6 * var(--header-unit)) Poppins;
+						font: 300 calc(0.6 * var(--header-unit)) poppins;
 						svg {
 							margin-right: calc(0.8 * var(--header-unit));
 							font-size: calc(0.8 * var(--header-unit));
