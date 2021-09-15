@@ -28,7 +28,10 @@
 		justify-self: start;
 		align-self: center;
 		text-align: justify;
-		font: 100 calc(0.45 * var(--section-unit)) poppins;
+		// font: 100 calc(0.45 * var(--section-unit)) poppins;
+		font-family: poppins;
+		font-size: calc(0.45 * var(--section-unit));
+		font-weight: 100;
 		z-index: 5;
 		opacity: 0;
 		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
