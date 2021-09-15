@@ -10,14 +10,18 @@
 		opacity: 0;
 		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
 		sub {
-			font: 500 calc(0.75 * var(--section-unit)) visueltPro;
+			font-family: visueltPro;
+			font-size: calc(0.75 * var(--section-unit));
+			font-weight: 500;
 			line-height: calc(0.75 * var(--section-unit));
 			height: calc(0.75 * var(--section-unit));
 			transition: 0.4s;
 		}
 		h1 {
 			transition: 0.4s;
-			font: 500 calc(3 * var(--section-unit)) visueltPro;
+			font-family: visueltPro;
+			font-size: calc(3 * var(--section-unit));
+			font-weight: 500;
 			word-spacing: calc(0.8 * var(--section-unit));
 			letter-spacing: calc(-0.3 * var(--section-unit));
 			left: calc(-0.2 * var(--section-unit));
@@ -28,7 +32,6 @@
 		justify-self: start;
 		align-self: center;
 		text-align: justify;
-		// font: 100 calc(0.45 * var(--section-unit)) poppins;
 		font-family: poppins;
 		font-size: calc(0.45 * var(--section-unit));
 		font-weight: 100;
@@ -52,7 +55,9 @@
 				overflow: unset;
 				font-size: calc(0.55 * var(--section-unit));
 				.text {
-					font: 300 1em visueltPro;
+					font-family: visueltPro;
+					font-size: 1em;
+					font-weight: 300;
 					padding: calc(0.5 * var(--section-unit))
 						calc(1 * var(--section-unit));
 					display: flex;

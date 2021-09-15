@@ -4,8 +4,10 @@
 .contact {
 	&_title {
 		grid-area: 5/4/7/12;
-		font: 500 calc(1.5 * var(--section-unit)) /
-			calc(2 * var(--section-unit)) visueltPro;
+		font-family: visueltPro;
+		font-size: calc(1.5 * var(--section-unit));
+		font-weight: 500;
+		line-height: calc(1.8 * var(--section-unit));
 		justify-self: center;
 		align-self: center;
 		text-align: center;
@@ -21,7 +23,9 @@
 	}
 	&_paragraph {
 		grid-area: 7/5/10/11;
-		font: 100 calc(0.45 * var(--section-unit)) poppins;
+		font-family: poppins;
+		font-size: calc(0.45 * var(--section-unit));
+		font-weight: 100;
 		justify-self: center;
 		align-self: center;
 		text-align: center;
@@ -32,7 +36,9 @@
 		.button {
 			display: inline-block;
 			background: transparent;
-			font: 500 calc(0.45 * var(--section-unit)) poppins;
+			font-family: poppins;
+			font-size: calc(0.45 * var(--section-unit));
+			font-weight: 500;
 			user-select: unset;
 			&::before {
 				content: "";

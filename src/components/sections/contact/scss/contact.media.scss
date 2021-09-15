@@ -12,8 +12,10 @@
 	.contact {
 		&_title {
 			grid-area: 5/2/8/14;
-			font: 500 calc(1.8 * var(--section-unit)) /
-				calc(2 * var(--section-unit)) visueltPro;
+			font-family: visueltPro;
+			font-size: calc(1.8 * var(--section-unit));
+			font-weight: 500;
+			line-height: calc(1.2 * var(--section-unit));
 			justify-self: left;
 			text-align: left;
 			&::before {

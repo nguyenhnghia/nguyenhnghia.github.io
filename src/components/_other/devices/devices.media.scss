@@ -8,6 +8,9 @@
 			&::after {
 				content: unset;
 			}
+			&_topEdge {
+				display: none;
+			}
 		}
 		&_base {
 			display: none;

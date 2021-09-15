@@ -3,10 +3,14 @@
 		&_title {
 			grid-area: 4/2/8/8;
 			sub {
-				font: 500 calc(0.8 * var(--section-unit)) visueltPro;
+				font-family: visueltPro;
+				font-size: calc(0.8 * var(--section-unit));
+				font-weight: 500;
 			}
 			h1 {
-				font: 500 calc(3.5 * var(--section-unit)) visueltPro;
+				font-family: visueltPro;
+				font-size: calc(3.5 * var(--section-unit));
+				font-weight: 500;
 			}
 		}
 		&_content {
@@ -22,10 +26,14 @@
 		&_title {
 			grid-area: 7/2/9/14;
 			sub {
-				font: 500 calc(1 * var(--section-unit)) visueltPro;
+				font-family: visueltPro;
+				font-size: calc(1 * var(--section-unit));
+				font-weight: 500;
 			}
 			h1 {
-				font: 500 calc(2 * var(--section-unit)) visueltPro;
+				font-family: visueltPro;
+				font-size: calc(2 * var(--section-unit));
+				font-weight: 500;
 				word-spacing: unset;
 				letter-spacing: unset;
 				left: calc(-0.1 * var(--section-unit));
@@ -44,10 +52,14 @@
 		&_title {
 			grid-area: 7/2/10/12;
 			sub {
-				font: 500 calc(0.8 * var(--section-unit)) visueltPro;
+				font-family: visueltPro;
+				font-size: calc(0.8 * var(--section-unit));
+				font-weight: 500;
 			}
 			h1 {
-				font: 500 calc(1.8 * var(--section-unit)) visueltPro;
+				font-family: visueltPro;
+				font-size: calc(1.8 * var(--section-unit));
+				font-weight: 500;
 				word-spacing: unset;
 				letter-spacing: unset;
 				left: calc(-0.1 * var(--section-unit));

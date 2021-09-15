@@ -15,14 +15,9 @@
 				margin-top: calc(1.5 * var(--section-unit));
 				.title,
 				.description {
-					transform: translateX(-100%);
 					width: fit-content;
-					animation: textFloatInPhase1 0.4s forwards;
-					@keyframes textFloatInPhase1 {
-						to {
-							transform: translateX(0);
-						}
-					}
+					@include floatX(-100%, 0, forwards, false);
+					animation-duration: 0.4s;
 					&::before {
 						content: "";
 						position: absolute;
@@ -32,16 +27,15 @@
 						width: 100%;
 						background-color: currentColor;
 						transition: all 0.5s, color 0s;
-						animation: textFloatInPhase2 0.4s 0.6s forwards;
-						@keyframes textFloatInPhase2 {
-							to {
-								width: 0%;
-							}
-						}
+						@include width(100%, 0%, forwards);
+						animation-duration: 0.4s;
+						animation-delay: 0.6s;
 					}
 				}
 				.title {
-					font: 500 calc(1.2 * var(--section-unit)) VisueltPro;
+					font-family: visueltPro;
+					font-size: calc(1.2 * var(--section-unit));
+					font-weight: 500;
 				}
 				.technologies {
 					display: flex;
@@ -50,13 +44,17 @@
 						opacity: 0;
 						@include scale(0.8, 1, forwards, true);
 						.text-tag {
-							font: 300 calc(0.4 * var(--section-unit)) poppins;
+							font-family: poppins;
+							font-size: calc(0.4 * var(--section-unit));
+							font-weight: 300;
 						}
 					}
 				}
 				.description {
 					text-align: justify;
-					font: 100 calc(0.45 * var(--section-unit)) poppins;
+					font-family: poppins;
+					font-size: calc(0.45 * var(--section-unit));
+					font-weight: 100;
 				}
 			}
 			&_images {
@@ -98,7 +96,7 @@
 		z-index: 3;
 		.list {
 			justify-content: start;
-			gap: calc(0.8 * var(--section-unit));
+			gap: calc(0.85 * var(--section-unit));
 			.list_item,
 			%list_item {
 				opacity: 0;
@@ -111,14 +109,17 @@
 				.button {
 					.text {
 						opacity: 0.15;
-						font: 500 calc(0.65 * var(--section-unit)) poppins;
+						font-family: poppins;
+						font-size: calc(0.65 * var(--section-unit));
+						font-weight: 500;
+						line-height: calc(0.8 * var(--section-unit));
 						padding: 0;
 						&::before {
 							content: "";
 							position: absolute;
 							height: 0.1em;
 							width: 0%;
-							bottom: 0.15em;
+							bottom: 0;
 							right: 0;
 							background: currentColor;
 							transition: all 0.4s, color 0s;
@@ -141,8 +142,8 @@
 							text-decoration: unset;
 							&::before {
 								right: unset;
-								left: 0;
-								width: 100%;
+								left: 5%;
+								width: 90%;
 							}
 						}
 					}

@@ -22,7 +22,9 @@
 					);
 					.button {
 						border-radius: calc(0.45 * var(--header-unit));
-						font: 300 calc(0.45 * var(--header-unit)) poppins;
+						font-family: poppins;
+						font-size: calc(0.45 * var(--header-unit));
+						font-weight: 300;
 						svg {
 							display: none;
 						}
@@ -204,7 +206,9 @@
 						display: flex;
 						justify-content: flex-start;
 						align-items: center;
-						font: 300 calc(0.6 * var(--header-unit)) poppins;
+						font-family: poppins;
+						font-size: calc(0.6 * var(--header-unit));
+						font-weight: 300;
 						svg {
 							margin-right: calc(0.8 * var(--header-unit));
 							font-size: calc(0.8 * var(--header-unit));
@@ -238,11 +242,3 @@
 		}
 	}
 }
-// @media (max-width: 413.9px) {
-// 	.header {
-// 		&_navigator {
-// 			padding: calc(0.5 * var(--header-unit));
-// 			padding-top: calc(1.5 * var(--header-unit));
-// 		}
-// 	}
-// }
