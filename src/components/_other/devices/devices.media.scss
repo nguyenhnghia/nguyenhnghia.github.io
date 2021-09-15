@@ -1,0 +1,43 @@
+@media (min-width: 768px) and (max-width: 1279.9px) {
+	.devices {
+		&_lid {
+			padding: 1%;
+			border-radius: 8px;
+			border: 3px solid $coolGray-500;
+			&::before,
+			&::after {
+				content: unset;
+			}
+		}
+		&_base {
+			display: none;
+		}
+	}
+}
+@media (max-width: 767.9px) {
+	.devices {
+		aspect-ratio: 8/16;
+		&_lid {
+			padding: 1%;
+			border-radius: 20px;
+			border: 3px solid $coolGray-500;
+			&_screen {
+				border-radius: 15px;
+			}
+			&_topEdge {
+				display: none;
+			}
+			&::before {
+				z-index: 2;
+				width: 3%;
+			}
+			&::after {
+				z-index: 2;
+				width: 1%;
+			}
+		}
+		&_base {
+			display: none;
+		}
+	}
+}

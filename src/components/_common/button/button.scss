@@ -1,0 +1,20 @@
+@import "../../_init/colors/origin.scss";
+.button {
+	all: unset;
+	background-color: $gray-400;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	user-select: none;
+	transition: 0.4s;
+	display: block;
+	.text {
+		position: relative;
+		display: block;
+		line-height: 1em;
+		padding: 0.5em 1em;
+	}
+	&:active {
+		transform: translateY(0.1em);
+	}
+}

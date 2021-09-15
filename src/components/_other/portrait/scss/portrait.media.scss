@@ -1,0 +1,46 @@
+@media (min-width: 1024px) and (max-width: 1279.9px) {
+	.portrait {
+		img {
+			bottom: -5rem;
+		}
+	}
+}
+@media (max-width: 961.9px) {
+	.portrait {
+		animation: none;
+		inset: 0;
+		background: transparent !important;
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 30% 0 0 0;
+			@include floatY(100%, 0, forwards, true);
+			animation-duration: 0.4s;
+		}
+		img {
+			width: calc(55% + 8 * var(--portrait-unit));
+			left: 0;
+			animation-delay: 0s;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 961.9px) {
+	.portrait {
+		img {
+			width: calc(60% + 8 * var(--portrait-unit));
+			left: 0;
+			animation-delay: 0s;
+		}
+		&-about {
+			display: block;
+		}
+	}
+}
+@media (max-width: 767.9px) {
+	.portrait {
+		&-about {
+			display: none;
+		}
+	}
+}

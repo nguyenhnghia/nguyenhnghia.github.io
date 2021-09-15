@@ -1,0 +1,157 @@
+@import "../../_init/colors/origin.scss";
+.devices {
+	--thickness: 10px;
+	transition: 0.4s;
+	width: 100%;
+	aspect-ratio: 16/10;
+	perspective: 3500px;
+	perspective-origin: bottom;
+	transform-origin: bottom;
+	transform-style: preserve-3d;
+	&_lid {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to top right,
+			$coolGray-900 0%,
+			$coolGray-700 80%
+		);
+		padding: 2.5%;
+		border: 3px solid $coolGray-500;
+		border-bottom: 0px;
+		border-radius: 16px 16px 0 0;
+		transform-origin: bottom;
+		transform-style: preserve-3d;
+		&_screen {
+			width: 100%;
+			height: 100%;
+			background: $coolGray-50;
+			border-radius: 4px;
+			overflow: hidden;
+		}
+		&_topEdge {
+			width: 100%;
+			height: calc(0.6 * var(--thickness));
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform-origin: top;
+			transform: rotateX(-90deg);
+			background: linear-gradient(
+				90deg,
+				$coolGray-900 0%,
+				$coolGray-600 2%,
+				$coolGray-600 98%,
+				$coolGray-900 100%
+			);
+			border-bottom: calc(0.1 * var(--thickness)) solid $coolGray-900;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			width: 1.5%;
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+			top: calc(1.25% + 3px);
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: $coolGray-900;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			width: 0.5%;
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+			top: calc(1.25% + 3px);
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: $coolGray-600;
+		}
+	}
+	&_base {
+		transition: 0.4s;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to top right,
+			$coolGray-900 0%,
+			$coolGray-700 80%
+		);
+		border: 3px solid $coolGray-500;
+		border-bottom: 0px;
+		transform: rotateX(-90deg);
+		transform-style: preserve-3d;
+		transform-origin: bottom;
+		&_topEdge {
+			transition: 0.4s;
+			width: 100%;
+			height: var(--thickness);
+			position: absolute;
+			top: 0;
+			left: 0%;
+			transform-origin: top;
+			transform: rotateX(90deg);
+			background: linear-gradient(
+				90deg,
+				$coolGray-900 0%,
+				$coolGray-600 2%,
+				$coolGray-600 98%,
+				$coolGray-900 100%
+			);
+			&-slot {
+				content: "";
+				position: absolute;
+				width: 30%;
+				height: calc(0.6 * var(--thickness));
+				border-radius: 0 0 calc(0.4 * var(--thickness))
+					calc(0.4 * var(--thickness));
+				transform: translate(-50%);
+				top: 0;
+				left: 50%;
+				z-index: 2;
+				background: $coolGray-600;
+				box-shadow: inset calc(0.5 * var(--thickness)) 0px
+						calc(0.1 * var(--thickness)) $coolGray-700,
+					inset calc(-0.5 * var(--thickness)) 0px
+						calc(0.1 * var(--thickness)) $coolGray-500,
+					inset 0px calc(-0.2 * var(--thickness))
+						calc(0.1 * var(--thickness)) $coolGray-700;
+			}
+			&-curve {
+				width: calc(100% - calc(16 * var(--thickness)));
+				top: 100%;
+				left: calc(8 * var(--thickness));
+				height: calc(0.6 * var(--thickness));
+				background: $coolGray-900;
+				&::before {
+					content: "";
+					position: absolute;
+					width: calc(8 * var(--thickness));
+					height: calc(0.6 * var(--thickness));
+					top: 0;
+					right: calc(-8 * var(--thickness));
+					z-index: 2;
+					border-radius: 0 0 100% 0;
+					background: $coolGray-900;
+				}
+				&::after {
+					content: "";
+					position: absolute;
+					width: calc(8 * var(--thickness));
+					height: calc(0.6 * var(--thickness));
+					top: 0;
+					left: calc(-8 * var(--thickness));
+					z-index: 2;
+					border-radius: 0 0 0 100%;
+					background: $coolGray-900;
+				}
+			}
+		}
+	}
+}
+@import "./devices.media.scss";

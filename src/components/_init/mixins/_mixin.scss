@@ -1,0 +1,16 @@
+@mixin anm-dr-x($timeUnit, $xMax) {
+	@for $i from 1 through $xMax {
+		.anm-dr-#{$i}x {
+			animation-duration: calc(#{$timeUnit} * #{$i}) !important;
+		}
+	}
+}
+@mixin anm-dl-x($timeUnit, $xMax) {
+	@for $i from 1 through $xMax {
+		.anm-dl-#{$i}x {
+			animation-delay: calc(#{$timeUnit} * #{$i}) !important;
+		}
+	}
+}
+@include anm-dr-x(var(--animation-runTime-unit), 40);
+@include anm-dl-x(var(--animation-runTime-unit), 40);

@@ -1,0 +1,17 @@
+@import "../../../_init/colors/colors";
+.portrait {
+	&-light {
+		background-color: $coolGray-200;
+	}
+}
+@media (max-width: 961.9px) {
+	.portrait-light {
+		&::after {
+			background: linear-gradient(
+				to top,
+				rgba($coolGray-900, 1),
+				rgba($coolGray-900, 0)
+			);
+		}
+	}
+}

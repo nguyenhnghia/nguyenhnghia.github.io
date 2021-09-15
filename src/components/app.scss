@@ -1,0 +1,42 @@
+@import "./_init/colors/colors";
+@import "./_init/mixins/mixin";
+*,
+*::before,
+*::after {
+	position: relative;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+::-webkit-scrollbar {
+	width: 0rem;
+}
+::selection {
+	color: $coolGray-200;
+	background-color: $coolGray-700;
+}
+:root {
+	font-size: 10px;
+	--animation-runTime-unit: 0.1s;
+}
+body {
+	margin: 0;
+	#root {
+		.app {
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			transition: 0.4s;
+			.section {
+				position: absolute;
+				inset: 0;
+				display: grid;
+				grid-template-columns: calc(2 * var(--unit)) repeat(12, 1fr) calc(
+						2 * var(--unit)
+					);
+				grid-template-rows: repeat(12, 1fr);
+			}
+		}
+	}
+}
+@import "./app.media.scss";

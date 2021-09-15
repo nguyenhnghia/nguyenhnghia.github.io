@@ -1,0 +1,37 @@
+@import "../../../_init/colors/colors";
+.contact.section-light {
+	background-color: $coolGray-50;
+	.contact {
+		&_title {
+			color: $coolGray-700;
+		}
+		&_paragraph {
+			color: $coolGray-600;
+			.button {
+				color: $summer-sky;
+			}
+		}
+		&_list {
+			.list_item {
+				.button {
+					box-shadow: 0 0 0 0 $sky-400;
+					svg {
+						color: $coolGray-800;
+					}
+					&:hover {
+						box-shadow: 0rem 0rem 0rem 0.32em $sky-400;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 767.9px) {
+	.contact.contact.section-light {
+		.contact_title::before {
+			color: transparent;
+			-webkit-text-stroke: 0.3px $coolGray-300;
+		}
+	}
+}

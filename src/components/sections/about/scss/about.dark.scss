@@ -1,0 +1,30 @@
+@import "../../../_init/colors/colors";
+.about.section-dark {
+	background-color: $coolGray-800;
+	.about {
+		&_quotes {
+			color: $summer-sky;
+		}
+		&_bio {
+			color: $coolGray-400;
+			.button {
+				color: $summer-sky;
+			}
+		}
+
+		&_skills {
+			.text {
+				color: $coolGray-400;
+			}
+
+			.list {
+				.list_item {
+					.text-tag {
+						background: $sky-900;
+						color: $summer-sky;
+					}
+				}
+			}
+		}
+	}
+}

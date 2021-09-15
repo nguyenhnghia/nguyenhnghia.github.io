@@ -1,0 +1,36 @@
+@media (min-width: 768px) and (max-width: 961.9px) {
+	.contact {
+		&_title {
+			grid-area: 5/2/7/14;
+		}
+		&_paragraph {
+			grid-area: 7/2/10/14;
+		}
+	}
+}
+@media (max-width: 767.9px) {
+	.contact {
+		&_title {
+			grid-area: 5/2/8/14;
+			font: 500 calc(1.8 * var(--section-unit)) /
+				calc(2 * var(--section-unit)) visueltPro;
+			justify-self: left;
+			text-align: left;
+			&::before {
+				transform: scale(14);
+				transform-origin: right;
+				right: -40%;
+				bottom: -20%;
+				z-index: -1;
+			}
+		}
+		&_paragraph {
+			grid-area: 8/2/11/9;
+			text-align: justify;
+		}
+		&_list {
+			grid-area: 11/2/12/14;
+			justify-self: start;
+		}
+	}
+}

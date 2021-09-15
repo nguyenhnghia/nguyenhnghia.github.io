@@ -1,0 +1,93 @@
+@import "../../../_init/animation/animations";
+@import "../../../_init/fonts/fonts";
+
+.contact {
+	&_title {
+		grid-area: 5/4/7/12;
+		font: 500 calc(1.5 * var(--section-unit)) /
+			calc(2 * var(--section-unit)) visueltPro;
+		justify-self: center;
+		align-self: center;
+		text-align: center;
+		opacity: 0;
+		@include floatY(calc(1 * var(--section-unit)), 0, forwards, true);
+		animation-duration: 0.4s;
+		&::before {
+			content: "?";
+			position: absolute;
+			bottom: 0;
+			right: -1ch;
+		}
+	}
+	&_paragraph {
+		grid-area: 7/5/10/11;
+		font: 100 calc(0.45 * var(--section-unit)) Poppins;
+		justify-self: center;
+		align-self: center;
+		text-align: center;
+		opacity: 0;
+		@include floatY(calc(1 * var(--section-unit)), 0, forwards, true);
+		animation-duration: 0.4s;
+		animation-delay: 0.1s;
+		.button {
+			display: inline-block;
+			background: transparent;
+			font: 500 calc(0.45 * var(--section-unit)) Poppins;
+			user-select: unset;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0.1em;
+				bottom: 0.05em;
+				right: 0;
+				background-color: currentColor;
+				transition: all 0.4s, background-color 0s;
+			}
+			&:hover {
+				transform: translateY(0);
+				&::before {
+					right: unset;
+					left: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+	&_list {
+		grid-area: 10/4/11/12;
+		align-self: center;
+		justify-self: center;
+		display: flex;
+		gap: calc(1 * var(--section-unit));
+		.list_item {
+			opacity: 0;
+			@include floatX(
+				calc(-0.5 * var(--section-unit)),
+				0,
+				forwards,
+				true
+			);
+			.button {
+				background: transparent;
+				padding: 0.4em;
+				border-radius: 0.4em;
+				.icon {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					svg {
+						transition: all 0.4s;
+						font-size: calc(1.1 * var(--section-unit));
+					}
+				}
+				&:hover {
+					svg {
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+}
+@import "./contact.media.scss";

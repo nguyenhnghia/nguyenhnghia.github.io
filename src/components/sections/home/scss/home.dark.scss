@@ -1,0 +1,58 @@
+@import "../../../_init/colors/colors";
+.home.section-dark {
+	background-color: $coolGray-800;
+	.home {
+		&_title {
+			sub {
+				color: $coolGray-200;
+			}
+			h1 {
+				color: $coolGray-200;
+				text-shadow: -2px 2px 0 $summer-sky;
+			}
+		}
+		&_content {
+			color: $coolGray-400;
+		}
+		&_buttonGroup {
+			.button {
+				&-cta {
+					.text {
+						color: $coolGray-800;
+					}
+					&::before {
+						background: linear-gradient(
+							to top right,
+							$summer-sky,
+							$sky-400
+						);
+					}
+					&::after {
+						box-shadow: inset 0 0 0 0px $summer-sky;
+					}
+					&:hover {
+						&::after {
+							box-shadow: inset 0 0 0 2px $summer-sky;
+						}
+					}
+				}
+				&-ghost {
+					.text {
+						color: $coolGray-200;
+					}
+					&::before {
+						box-shadow: inset 0 0 0 2px $summer-sky;
+					}
+					&::after {
+						box-shadow: inset 0 0 0 0px $summer-sky;
+					}
+					&:hover {
+						&::after {
+							box-shadow: inset 0 0 0 2px $summer-sky;
+						}
+					}
+				}
+			}
+		}
+	}
+}

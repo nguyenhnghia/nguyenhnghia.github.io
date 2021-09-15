@@ -1,0 +1,108 @@
+@mixin fade($from, $to, $fillMode) {
+	$animation-name: unique-id();
+	animation: fade-#{$animation-name} $fillMode;
+	@keyframes fade-#{$animation-name} {
+		from {
+			opacity: $from;
+		}
+		to {
+			opacity: $to;
+		}
+	}
+}
+@mixin width($from, $to, $fillMode) {
+	$animation-name: unique-id();
+	animation: width-#{$animation-name} $fillMode;
+	@keyframes width-#{$animation-name} {
+		from {
+			width: #{$from};
+		}
+		to {
+			width: #{$to};
+		}
+	}
+}
+@mixin height($from, $to, $fillMode) {
+	$animation-name: unique-id();
+	animation: height-#{$animation-name} $fillMode;
+	@keyframes height-#{$animation-name} {
+		from {
+			height: #{$from};
+		}
+		to {
+			height: #{$to};
+		}
+	}
+}
+@mixin scale($from, $to, $fillMode, $opacity) {
+	$animation-name: unique-id();
+	animation: scale-#{$animation-name} $fillMode;
+	@keyframes scale-#{$animation-name} {
+		from {
+			@if $opacity {
+				opacity: 0;
+			}
+			transform: scale($from);
+		}
+		to {
+			@if $opacity {
+				opacity: 1;
+			}
+			transform: scale($to);
+		}
+	}
+}
+@mixin floatX($from, $to, $fillMode, $opacity) {
+	$animation-name: unique-id();
+	animation: floatX-#{$animation-name} $fillMode;
+	@keyframes floatX-#{$animation-name} {
+		from {
+			@if $opacity {
+				opacity: 0;
+			}
+			transform: translateX(#{$from});
+		}
+		to {
+			@if $opacity {
+				opacity: 1;
+			}
+			transform: translateX(#{$to});
+		}
+	}
+}
+@mixin floatY($from, $to, $fillMode, $opacity) {
+	$animation-name: unique-id();
+	animation: floatY-#{$animation-name} $fillMode;
+	@keyframes floatY-#{$animation-name} {
+		from {
+			@if $opacity {
+				opacity: 0;
+			}
+			transform: translateY(#{$from});
+		}
+		to {
+			@if $opacity {
+				opacity: 1;
+			}
+			transform: translateY(#{$to});
+		}
+	}
+}
+@mixin rotateX($from, $to, $fillMode, $opacity) {
+	$animation-name: unique-id();
+	animation: rotateX-#{$animation-name} $fillMode;
+	@keyframes rotateX-#{$animation-name} {
+		from {
+			@if $opacity {
+				opacity: 0;
+			}
+			transform: rotateX(#{$from});
+		}
+		to {
+			@if $opacity {
+				opacity: 1;
+			}
+			transform: rotateX(#{$to});
+		}
+	}
+}

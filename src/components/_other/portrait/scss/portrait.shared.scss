@@ -1,0 +1,72 @@
+@import "../../../_init/animation/animations";
+.portrait {
+	pointer-events: none;
+	position: absolute;
+	height: 100%;
+	transition: 0.4s;
+	overflow: hidden;
+	z-index: 1;
+	img {
+		width: calc(12 * var(--portrait-unit));
+		position: absolute;
+		bottom: 0;
+		user-select: none;
+		opacity: 0;
+		@include scale(0.8, 1, forwards, true);
+		transform-origin: bottom left;
+		animation-duration: 0.4s;
+		animation-delay: 0.6s;
+	}
+	&-hide {
+		display: none;
+	}
+	&-home {
+		animation: slideRight 1s forwards;
+		@keyframes slideRight {
+			0% {
+				left: calc(3 * var(--portrait-unit));
+				width: calc(13 * var(--portrait-unit));
+			}
+			40% {
+				left: calc(3 * var(--portrait-unit));
+				width: calc(100% - 6 * var(--portrait-unit));
+			}
+			60% {
+				right: calc(3 * var(--portrait-unit));
+				width: calc(100% - 6 * var(--portrait-unit));
+			}
+			100% {
+				right: calc(3 * var(--portrait-unit));
+				width: calc(13 * var(--portrait-unit));
+			}
+		}
+		img {
+			right: calc(1 * var(--portrait-unit));
+		}
+	}
+	&-about {
+		animation: slideLeft 1s forwards;
+		@keyframes slideLeft {
+			0% {
+				left: calc(100% - 16 * var(--portrait-unit));
+				width: calc(13 * var(--portrait-unit));
+			}
+			40% {
+				left: calc(3 * var(--portrait-unit));
+				width: calc(100% - 6 * var(--portrait-unit));
+			}
+			60% {
+				left: calc(3 * var(--portrait-unit));
+				width: calc(100% - 6 * var(--portrait-unit));
+			}
+			100% {
+				left: calc(3 * var(--portrait-unit));
+				width: calc(13 * var(--portrait-unit));
+			}
+		}
+		img {
+			left: 0;
+		}
+	}
+}
+@import "./portrait.media.scss";

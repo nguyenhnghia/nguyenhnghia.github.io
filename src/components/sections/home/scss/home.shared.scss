@@ -1,0 +1,83 @@
+@import "../../../_init/animation/animations";
+@import "../../../_init/fonts/fonts";
+.home {
+	&_title {
+		user-select: none;
+		grid-area: 4/2/8/14;
+		align-self: center;
+		justify-self: start;
+		z-index: 5;
+		opacity: 0;
+		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
+		sub {
+			font: 500 calc(0.75 * var(--section-unit)) visueltPro;
+			line-height: calc(0.75 * var(--section-unit));
+			height: calc(0.75 * var(--section-unit));
+			transition: 0.4s;
+		}
+		h1 {
+			transition: 0.4s;
+			font: 500 calc(3 * var(--section-unit)) visueltPro;
+			word-spacing: calc(0.8 * var(--section-unit));
+			letter-spacing: calc(-0.3 * var(--section-unit));
+			left: calc(-0.2 * var(--section-unit));
+		}
+	}
+	&_content {
+		grid-area: 7/2/10/11;
+		justify-self: start;
+		align-self: center;
+		text-align: justify;
+		font: 100 calc(0.45 * var(--section-unit)) Poppins;
+		z-index: 5;
+		opacity: 0;
+		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
+	}
+	&_buttonGroup {
+		grid-area: 9/2/12/11;
+		justify-self: start;
+		align-self: center;
+		display: flex;
+		gap: calc(0.5 * var(--section-unit));
+		z-index: 5;
+		opacity: 0;
+		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
+		.button {
+			&-cta,
+			&-ghost {
+				background: transparent;
+				overflow: unset;
+				font-size: calc(0.55 * var(--section-unit));
+				.text {
+					font: 300 1em visueltPro;
+					padding: calc(0.5 * var(--section-unit))
+						calc(1 * var(--section-unit));
+					display: flex;
+					svg {
+						margin-left: calc(0.1 * var(--section-unit));
+					}
+				}
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					inset: 0;
+					transition: 0.4s;
+					border-radius: 0.15em;
+				}
+				&::after {
+					z-index: 0;
+				}
+				&:hover {
+					.text {
+						transform: scale(1.1);
+					}
+					&::after {
+						inset: -6px;
+					}
+				}
+			}
+		}
+	}
+}
+@import "./home.media.scss";

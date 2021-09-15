@@ -1,0 +1,37 @@
+@import "../../../_init/colors/colors";
+.works.section-dark {
+	background-color: $coolGray-800;
+	.works {
+		&_navigator {
+			.list .list_item {
+				.button {
+					background: transparent;
+					.text {
+						color: $coolGray-200;
+					}
+				}
+				&-active {
+					@extend .list_item;
+				}
+			}
+		}
+		&_content {
+			.content_details {
+				.title {
+					color: $summer-sky;
+				}
+				.technologies {
+					.list_item {
+						.text-tag {
+							background: $sky-900;
+							color: $summer-sky;
+						}
+					}
+				}
+				.description {
+					color: $coolGray-400;
+				}
+			}
+		}
+	}
+}

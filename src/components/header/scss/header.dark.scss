@@ -1,0 +1,82 @@
+@import "../../_init/colors/colors";
+.header {
+	&-dark {
+		.header {
+			&_title .text {
+				color: $coolGray-200;
+			}
+			&_navigator .list .list_item {
+				.button {
+					background-color: transparent;
+					&::before {
+						background: linear-gradient(
+							to top right,
+							$summer-sky,
+							$sky-400
+						);
+					}
+					.text {
+						color: $coolGray-100;
+					}
+				}
+				.switcher {
+					.switcher_slider {
+						background: transparent;
+						box-shadow: inset 0 0 0 1px $coolGray-300;
+						.icon {
+							background-color: $coolGray-300;
+							svg {
+								color: $coolGray-800;
+							}
+						}
+					}
+				}
+				&-active {
+					@extend .list_item;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 767.9px) {
+	.header-dark {
+		.button-toggle {
+			background: transparent;
+			* {
+				background: $coolGray-400;
+			}
+		}
+		.navigator {
+			&::before {
+				background: $coolGray-900;
+			}
+			&::after {
+				background: $coolGray-800;
+			}
+			.list {
+				border-top: 1px solid $coolGray-400;
+				.list_item {
+					.button {
+						svg {
+							color: $coolGray-100 !important;
+							opacity: 0.5;
+						}
+						.text {
+							color: $coolGray-100 !important;
+						}
+					}
+					&-active {
+						.button {
+							svg {
+								color: $summer-sky !important;
+							}
+							.text {
+								color: $summer-sky !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

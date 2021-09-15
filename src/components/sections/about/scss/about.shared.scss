@@ -1,0 +1,82 @@
+@import "../../../_init/fonts/fonts";
+@import "../../../_init/animation/animations";
+.about {
+	&_quotes {
+		grid-area: 3/7/5/14;
+		justify-self: end;
+		align-self: center;
+		z-index: 5;
+		font: 500 calc(1.5 * var(--section-unit)) visueltPro;
+		opacity: 0;
+		@include fade(0, 1, forwards);
+		animation-duration: 0.4s;
+	}
+	&_bio {
+		grid-area: 5/7/10/14;
+		font: 100 calc(0.45 * var(--section-unit)) Poppins;
+		z-index: 6;
+		justify-self: start;
+		align-self: center;
+		text-align: justify;
+		p {
+			opacity: 0;
+			@include floatY(calc(1 * var(--section-unit)), 0em, forwards, true);
+			& + p {
+				margin-top: calc(0.4 * var(--section-unit));
+			}
+		}
+		.button {
+			display: inline-block;
+			background: transparent;
+			font: 500 calc(0.45 * var(--section-unit)) Poppins;
+			user-select: unset;
+			.text {
+				display: flex;
+				padding: 0 0 4px 0;
+				svg {
+					margin-left: calc(0.1 * var(--section-unit));
+				}
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0.1em;
+				bottom: 0.05em;
+				right: 0;
+				background-color: currentColor;
+				transition: all 0.4s, background-color 0s;
+			}
+			&:hover {
+				transform: translateY(0);
+				&::before {
+					right: unset;
+					left: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+	&_skills {
+		grid-area: 10/7/12/14;
+		justify-self: start;
+		align-self: center;
+		z-index: 5;
+		opacity: 0;
+		@include floatY(calc(1 * var(--section-unit)), 0em, forwards, true);
+		.text {
+			font: 100 calc(0.45 * var(--section-unit)) Poppins;
+		}
+		.list {
+			display: flex;
+			margin-top: calc(0.3 * var(--section-unit));
+			gap: calc(0.4 * var(--section-unit));
+			.list_item {
+				.text-tag {
+					font: 300 calc(0.45 * var(--section-unit)) Poppins;
+				}
+			}
+		}
+	}
+}
+@import "./about.media.scss";

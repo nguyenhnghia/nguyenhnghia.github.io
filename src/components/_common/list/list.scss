@@ -1,0 +1,17 @@
+.list {
+	margin: 0;
+	padding-inline-start: 0em;
+	position: relative;
+	transition: 0.4s;
+	&_item {
+		position: relative;
+		list-style-type: none;
+		transition: 0.4s;
+		&-active {
+			@extend .list_item;
+			.text {
+				text-decoration: underline;
+			}
+		}
+	}
+}

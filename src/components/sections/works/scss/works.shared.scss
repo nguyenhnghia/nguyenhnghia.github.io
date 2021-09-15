@@ -1,0 +1,154 @@
+@import "../../../_init/fonts/fonts";
+@import "../../../_init/animation/animations";
+.works {
+	&_content {
+		grid-area: 3/2/11/14;
+		display: grid;
+		grid-template-columns: 35% 60%;
+		grid-gap: 5%;
+		.content {
+			&_details {
+				display: flex;
+				flex-direction: column;
+				gap: calc(0.5 * var(--section-unit));
+				overflow-x: hidden;
+				margin-top: calc(1.5 * var(--section-unit));
+				.title,
+				.description {
+					transform: translateX(-100%);
+					width: fit-content;
+					animation: textFloatInPhase1 0.4s forwards;
+					@keyframes textFloatInPhase1 {
+						to {
+							transform: translateX(0);
+						}
+					}
+					&::before {
+						content: "";
+						position: absolute;
+						top: 0;
+						right: 0;
+						height: 100%;
+						width: 100%;
+						background-color: currentColor;
+						transition: all 0.5s, color 0s;
+						animation: textFloatInPhase2 0.4s 0.6s forwards;
+						@keyframes textFloatInPhase2 {
+							to {
+								width: 0%;
+							}
+						}
+					}
+				}
+				.title {
+					font: 500 calc(1.2 * var(--section-unit)) VisueltPro;
+				}
+				.technologies {
+					display: flex;
+					gap: calc(0.2 * var(--section-unit));
+					.list_item {
+						opacity: 0;
+						@include scale(0.8, 1, forwards, true);
+						.text-tag {
+							font: 300 calc(0.4 * var(--section-unit)) Poppins;
+						}
+					}
+				}
+				.description {
+					text-align: justify;
+					font: 100 calc(0.45 * var(--section-unit)) Poppins;
+				}
+			}
+			&_images {
+				align-self: center;
+				.devices {
+					@include floatX(130%, 0, forwards, false);
+					animation-duration: 0.4s;
+					&_lid {
+						transform: rotateX(-90deg);
+						@include rotateX(-90deg, 0deg, forwards, false);
+						animation-duration: 0.4s;
+						animation-delay: 0.6s;
+						&_screen {
+							img {
+								height: 100%;
+								transform: translate(-50%, -50%);
+								top: 50%;
+								left: 50%;
+								user-select: none;
+							}
+						}
+						&_topEdge {
+							animation: edgeScaleDown 0.4s 0.6s forwards;
+							@keyframes edgeScaleDown {
+								to {
+									width: 90%;
+									left: 5%;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&_navigator {
+		grid-area: 11/2/12/14;
+		align-self: end;
+		z-index: 3;
+		.list {
+			justify-content: start;
+			gap: calc(0.8 * var(--section-unit));
+			.list_item,
+			%list_item {
+				opacity: 0;
+				@include floatY(
+					calc(0.5 * var(--section-unit)),
+					calc(0 * var(--section-unit)),
+					forwards,
+					true
+				);
+				.button {
+					.text {
+						opacity: 0.15;
+						font: 500 calc(0.65 * var(--section-unit)) Poppins;
+						padding: 0;
+						&::before {
+							content: "";
+							position: absolute;
+							height: 0.1em;
+							width: 0%;
+							bottom: 0.15em;
+							right: 0;
+							background: currentColor;
+							transition: all 0.4s, color 0s;
+						}
+					}
+					&:hover {
+						transform: scale(1.1);
+						.text {
+							opacity: 1;
+						}
+					}
+				}
+				&-active {
+					@extend %list_item;
+					.button,
+					.button:hover {
+						transform: translateY(calc(-0.1 * var(--section-unit)));
+						.text {
+							opacity: 1;
+							text-decoration: unset;
+							&::before {
+								right: unset;
+								left: 0;
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@import "./works.media.scss";

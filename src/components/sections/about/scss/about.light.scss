@@ -1,0 +1,53 @@
+@import "../../../_init/colors/colors";
+.about.section-light {
+	background-color: $coolGray-50;
+	.about {
+		&_quotes {
+			color: $summer-sky;
+		}
+		&_bio {
+			color: $coolGray-600;
+			.button {
+				color: $summer-sky;
+			}
+		}
+
+		&_skills {
+			.text {
+				color: $coolGray-800;
+			}
+
+			.list {
+				.list_item {
+					.text-tag {
+						background: $sky-100;
+						color: $summer-sky;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 961.9px) {
+	.about {
+		&_bio {
+			color: $coolGray-200 !important;
+		}
+
+		&_skills {
+			.text {
+				color: $coolGray-200 !important;
+			}
+
+			.list {
+				.list_item {
+					.text-tag {
+						background: $sky-900 !important;
+						color: $summer-sky !important;
+					}
+				}
+			}
+		}
+	}
+}

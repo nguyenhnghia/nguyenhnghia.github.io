@@ -1,0 +1,99 @@
+@import "../../_init/fonts/fonts";
+@import "../../_init/animation/animations";
+.header {
+	padding: var(--header-unit) 0rem;
+	display: grid;
+	grid-template-columns: calc(2 * var(--header-unit)) repeat(12, 1fr) calc(
+			2 * var(--header-unit)
+		);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	transition: 0.4s;
+	&_title {
+		grid-column: 2/7;
+		grid-row: 1/1;
+		justify-self: start;
+		align-self: center;
+		width: 100%;
+		height: calc(0.9 * var(--header-unit));
+		overflow: hidden;
+		z-index: 10;
+		opacity: 0;
+		@include floatX(calc(-0.75 * var(--header-unit)), 0, forwards, true);
+		.list_item,
+		%title_list_item {
+			position: absolute;
+			transform: translateY(-50%);
+			top: 50%;
+			left: 0;
+			@include floatY(-50%, 100%, forwards, false);
+			animation-duration: 0.4s;
+			.text {
+				display: block;
+				font: 500 calc(0.65 * var(--header-unit)) Poppins;
+				user-select: none;
+			}
+			&-active {
+				@extend %title_list_item;
+				@include floatY(-150%, -50%, forwards, false);
+				animation-duration: 0.4s;
+				.text {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	.button {
+		&-expand,
+		&-collapse {
+			z-index: 30;
+			height: calc(1 * var(--header-unit));
+			width: calc(1 * var(--header-unit));
+			justify-self: end;
+			align-self: center;
+			grid-column: -3/-2;
+			grid-row: 1/1;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			.line {
+				width: 80%;
+				height: 10%;
+				border-radius: 20px;
+				transition: 0.4s;
+				&-top {
+					@extend .line;
+				}
+				&-center {
+					@extend .line;
+				}
+				&-bottom {
+					@extend .line;
+				}
+			}
+		}
+		&-collapse {
+			.line {
+				&-top {
+					transform-origin: right;
+					transform: rotate(-45deg);
+				}
+				&-center {
+					transform: translateX(120%);
+				}
+				&-bottom {
+					transform-origin: right;
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+	&_navigator {
+		z-index: 20;
+	}
+}
+@import "./header.media.scss";
