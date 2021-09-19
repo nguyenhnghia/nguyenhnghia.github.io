@@ -119,18 +119,27 @@
 }
 @media (min-width: 768px) and (max-width: 961.9px) {
 	.app {
-		--unit: calc(2.4vw + 0.65rem);
+		--unit: calc(2.4vw + 0.8rem);
 		.header {
-			--header-unit: calc(2.4vw + 0.65rem);
+			--header-unit: calc(2.4vw + 0.8rem);
+			padding: calc(1 * var(--header-unit)) 0rem;
+			grid-template-columns:
+				calc(1 * var(--header-unit)) repeat(12, 1fr)
+				calc(1 * var(--header-unit));
 		}
 		.portrait {
-			--portrait-unit: calc(2.4vw + 1rem);
+			--portrait-unit: calc(2.4vw + 0.8rem);
+		}
+		.section {
+			grid-template-columns: calc(1 * var(--unit)) repeat(12, 1fr) calc(
+					1 * var(--unit)
+				) !important;
 		}
 		.home,
 		.about,
 		.works,
 		.contact {
-			--section-unit: calc(2.4vw + 2rem);
+			--section-unit: calc(2.4vw + 1.5rem);
 		}
 	}
 }
@@ -151,6 +160,7 @@
 			grid-template-columns: calc(1 * var(--unit)) repeat(12, 1fr) calc(
 					1 * var(--unit)
 				) !important;
+			padding-bottom: calc(1.5 * var(--unit)) !important;
 		}
 		.home,
 		.about,
@@ -177,6 +187,7 @@
 			grid-template-columns: calc(0.5 * var(--unit)) repeat(12, 1fr) calc(
 					0.5 * var(--unit)
 				) !important;
+			padding-bottom: calc(1.5 * var(--unit)) !important;
 		}
 		.home,
 		.about,

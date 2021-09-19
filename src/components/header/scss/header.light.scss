@@ -4,20 +4,28 @@
 		&_title .text {
 			color: $coolGray-800;
 		}
-		&_navigator .list .list_item {
-			.button {
-				background-color: transparent;
-				&::before {
-					background: linear-gradient(
-						to top right,
-						$summer-sky,
-						$sky-400
-					);
-				}
-				.text {
-					color: $coolGray-800;
+		&_navigator {
+			.navigator {
+				.list .list_item {
+					.button {
+						background-color: transparent;
+						&::before {
+							background: linear-gradient(
+								to top right,
+								$summer-sky,
+								$sky-400
+							);
+						}
+						.text {
+							color: $coolGray-800;
+						}
+					}
+					&-active {
+						@extend .list_item;
+					}
 				}
 			}
+
 			.switcher {
 				.switcher_slider {
 					background: transparent;
@@ -30,20 +38,19 @@
 					}
 				}
 			}
-			&-active {
-				@extend .list_item;
-			}
 		}
 	}
 }
 @media (min-width: 1280px) {
 	.header {
 		&_navigator {
-			.list {
-				.list_item {
-					.button:hover {
-						.text {
-							color: $coolGray-100;
+			.navigator {
+				.list {
+					.list_item {
+						.button:hover {
+							.text {
+								color: $coolGray-100;
+							}
 						}
 					}
 				}
@@ -51,61 +58,48 @@
 		}
 	}
 }
-// @media (min-width: 768px) and (max-width: 1279.9px) {
-// 	.header {
-// 		&_navigator {
-// 			.list {
-// 				.list_item {
-// 					&-active {
-// 						.button {
-// 							.text {
-// 								color: $coolGray-200 !important;
-// 							}
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-// @media (max-width: 767.9px) {
-// 	.header-light {
-// 		.button-toggle {
-// 			background: transparent;
-// 			* {
-// 				background: $coolGray-400;
-// 			}
-// 		}
-// 		.navigator {
-// 			&::before {
-// 				background: $coolGray-900;
-// 			}
-// 			&::after {
-// 				background: $coolGray-50;
-// 			}
-// 			.list {
-// 				.list_item {
-// 					.button {
-// 						svg {
-// 							color: $coolGray-800 !important;
-// 							opacity: 0.5;
-// 						}
-// 						.text {
-// 							color: $coolGray-800 !important;
-// 						}
-// 					}
-// 					&-active {
-// 						.button {
-// 							svg {
-// 								color: $summer-sky !important;
-// 							}
-// 							.text {
-// 								color: $summer-sky !important;
-// 							}
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+@media (min-width: 768px) and (max-width: 1279.9px) {
+	.header {
+		&_navigator {
+			.navigator {
+				.list {
+					.list_item {
+						&-active {
+							.button {
+								.text {
+									color: $coolGray-200 !important;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 767.9px) {
+	.header-light {
+		.header_navigator {
+			.navigator {
+				background-color: $coolGray-50;
+				border-top: 1px solid $coolGray-200;
+				.list {
+					.list_item {
+						.button {
+							svg {
+								color: $coolGray-800 !important;
+							}
+						}
+						&-active {
+							.button {
+								svg {
+									color: $summer-sky !important;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -27,11 +27,11 @@
 	}
 }
 
-@media (max-width: 767.9px) {
+@media (max-width: 961.9px) {
 	.contact.contact.section-light {
 		.contact_title::before {
 			color: transparent;
-			-webkit-text-stroke: 0.3px $coolGray-300;
+			-webkit-text-stroke: 0.005em $coolGray-300;
 		}
 	}
 }

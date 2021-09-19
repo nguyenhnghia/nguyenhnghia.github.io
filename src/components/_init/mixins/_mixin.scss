@@ -46,10 +46,9 @@
 					left: calc(3 * var(--portrait-unit));
 				}
 				@if $i > 35 {
-					height: 0;
 					left: calc(3 * var(--portrait-unit));
+					transform: translateX(-25vw);
 					opacity: 0;
-					transform-origin: top;
 				}
 			}
 			.home {
@@ -127,12 +126,14 @@
 				}
 				@if $i != 50 {
 					&_navigator {
-						.list .list_item,
-						.list_item-active {
-							transform: translateY(
-								calc(0.5 * var(--section-unit))
-							);
-							opacity: 0;
+						.list {
+							&_item,
+							&_item-active {
+								transform: translateY(
+									calc(0.5 * var(--section-unit))
+								);
+								opacity: 0;
+							}
 						}
 					}
 				}
@@ -166,5 +167,5 @@
 }
 @include anm-dr-x(var(--animation-runTime-unit), 40);
 @include anm-dl-x(var(--animation-runTime-unit), 40);
-@include tst-dl-x(var(--animation-runTime-unit), 40);
+@include tst-dl-x(var(--transition-runTime-unit), 40);
 @include on-scroll-animation();

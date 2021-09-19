@@ -4,8 +4,8 @@
 	&_content {
 		grid-area: 3/2/11/14;
 		display: grid;
-		grid-template-columns: 35% 60%;
-		grid-gap: 5%;
+		grid-template-columns: 37% 60%;
+		grid-gap: 3%;
 		.content {
 			&_details {
 				transition: 0.4s;
@@ -13,7 +13,7 @@
 				flex-direction: column;
 				gap: calc(0.5 * var(--section-unit));
 				overflow-x: hidden;
-				margin-top: calc(1.5 * var(--section-unit));
+				margin-top: calc(1 * var(--section-unit));
 				.title,
 				.description {
 					width: fit-content;

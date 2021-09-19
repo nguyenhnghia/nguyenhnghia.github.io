@@ -2,45 +2,22 @@
 	.home {
 		&_title {
 			grid-area: 4/2/8/8;
-			sub {
-				font-family: visueltPro;
-				font-size: calc(0.8 * var(--section-unit));
-				font-weight: 500;
-			}
-			h1 {
-				font-family: visueltPro;
-				font-size: calc(3.5 * var(--section-unit));
-				font-weight: 500;
-			}
 		}
 		&_content {
-			grid-area: 9/2/10/8;
+			grid-area: 8/2/10/8;
 		}
 		&_buttonGroup {
-			grid-area: 10/2/13/8;
+			grid-area: 10/2/12/8;
 		}
 	}
 }
 @media (min-width: 768px) and (max-width: 961.9px) {
 	.home {
 		&_title {
-			grid-area: 7/2/9/14;
-			sub {
-				font-family: visueltPro;
-				font-size: calc(1 * var(--section-unit));
-				font-weight: 500;
-			}
-			h1 {
-				font-family: visueltPro;
-				font-size: calc(2 * var(--section-unit));
-				font-weight: 500;
-				word-spacing: unset;
-				letter-spacing: unset;
-				left: calc(-0.1 * var(--section-unit));
-			}
+			grid-area: 8/2/10/14;
 		}
 		&_content {
-			grid-area: 9/2/11/14;
+			grid-area: 10/2/11/14;
 		}
 		&_buttonGroup {
 			grid-area: 11/2/12/14;
@@ -50,7 +27,7 @@
 @media (max-width: 767.9px) {
 	.home {
 		&_title {
-			grid-area: 7/2/10/12;
+			grid-area: 7/2/9/14;
 			sub {
 				font-family: visueltPro;
 				font-size: calc(0.8 * var(--section-unit));
@@ -66,10 +43,10 @@
 			}
 		}
 		&_content {
-			grid-area: 10/2/11/12;
+			grid-area: 9/2/11/14;
 		}
 		&_buttonGroup {
-			grid-area: 11/2/13/14;
+			grid-area: 11/2/12/14;
 		}
 	}
 }

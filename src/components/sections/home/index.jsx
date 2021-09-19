@@ -23,23 +23,17 @@ class homeSection extends React.Component {
 					// this.props.sectionsChanged(this.props.sections[1].id);
 				}}
 			>
-				<Text
-					extraClasses={`${this.props.blockClassName}_title anm-dr-4x anm-dl-6x`}
-				>
+				<Text extraClasses={`${this.props.blockClassName}_title`}>
 					<sub>I'm a</sub>
 					<h1>Frontend Developer</h1>
 				</Text>
-				<Text
-					extraClasses={`${this.props.blockClassName}_content anm-dr-4x anm-dl-7x`}
-				>
+				<Text extraClasses={`${this.props.blockClassName}_content`}>
 					Hello, I'm Nguyen Huu Nghia, I do things to make websites
 					look nice and easy to use.
 					<br /> A front-end fresher with serious passion for
 					front-end development and UI/UX.
 				</Text>
-				<div
-					className={`${this.props.blockClassName}_buttonGroup anm-dr-4x anm-dl-8x`}
-				>
+				<div className={`${this.props.blockClassName}_buttonGroup`}>
 					<Button extraClasses="button-cta">
 						<Text>read my resume</Text>
 					</Button>

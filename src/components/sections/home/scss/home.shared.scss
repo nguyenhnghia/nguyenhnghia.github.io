@@ -4,8 +4,9 @@
 	&_title {
 		user-select: none;
 		grid-area: 4/2/8/14;
-		align-self: center;
 		justify-self: start;
+		align-self: end;
+		margin-bottom: 1vw;
 		z-index: 5;
 		sub {
 			font-family: visueltPro;
@@ -38,7 +39,8 @@
 	&_buttonGroup {
 		grid-area: 9/2/12/11;
 		justify-self: start;
-		align-self: center;
+		align-self: start;
+		margin-top: 2.5vw;
 		display: flex;
 		gap: calc(0.5 * var(--section-unit));
 		z-index: 5;
