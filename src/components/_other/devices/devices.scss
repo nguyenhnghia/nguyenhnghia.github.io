@@ -18,7 +18,7 @@
 			$coolGray-900 0%,
 			$coolGray-700 80%
 		);
-		padding: 2.5%;
+		padding: 1.5%;
 		border: 3px solid $coolGray-500;
 		border-bottom: 0px;
 		border-radius: 16px 16px 0 0;
@@ -47,28 +47,6 @@
 				$coolGray-900 100%
 			);
 			border-bottom: calc(0.1 * var(--thickness)) solid $coolGray-900;
-		}
-		&::before {
-			content: "";
-			position: absolute;
-			width: 1.5%;
-			aspect-ratio: 1/1;
-			border-radius: 50%;
-			top: calc(1.25% + 3px);
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background: $coolGray-900;
-		}
-		&::after {
-			content: "";
-			position: absolute;
-			width: 0.5%;
-			aspect-ratio: 1/1;
-			border-radius: 50%;
-			top: calc(1.25% + 3px);
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background: $coolGray-600;
 		}
 	}
 	&_base {

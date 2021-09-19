@@ -15,9 +15,10 @@
 			font-family: visueltPro;
 			font-size: calc(1.8 * var(--section-unit));
 			font-weight: 500;
-			line-height: calc(1.2 * var(--section-unit));
+			line-height: calc(2 * var(--section-unit));
 			justify-self: left;
 			text-align: left;
+			z-index: 0;
 			&::before {
 				transform: scale(14);
 				transform-origin: right;

@@ -43,13 +43,10 @@ class contactSection extends React.Component {
 		return (
 			<Section
 				extraClasses={
-					this.props.darkModeState
+					this.props.darkMode
 						? `section-dark ${this.props.blockClassName}`
 						: `section-light ${this.props.blockClassName}`
 				}
-				wheelUp={() => {
-					this.props.sectionsChanged(this.props.sections[2].id);
-				}}
 			>
 				<Text extraClasses={`${this.props.blockClassName}_title`}>
 					Looking for a<br /> front-end fresher
@@ -65,8 +62,8 @@ class contactSection extends React.Component {
 						return (
 							<Button
 								key={index}
-								itemExtraClasses={`anm-dr-4x anm-dl-${
-									5 + contactLinks.length - index
+								itemExtraClasses={`tst-dl-${
+									contactLinks.length - index
 								}x`}
 								clicked={() => {
 									window.open(item.href, "_blank");

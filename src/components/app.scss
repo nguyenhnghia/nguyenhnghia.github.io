@@ -8,9 +8,6 @@
 	margin: 0;
 	padding: 0;
 }
-::-webkit-scrollbar {
-	width: 0rem;
-}
 ::selection {
 	color: $coolGray-200;
 	background-color: $coolGray-700;
@@ -25,11 +22,16 @@ body {
 		.app {
 			width: 100vw;
 			height: 100vh;
-			overflow: hidden;
 			transition: 0.4s;
+			scroll-snap-type: y mandatory;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			scroll-behavior: smooth;
 			.section {
-				position: absolute;
-				inset: 0;
+				height: 100vh;
+				width: 100vw;
+				scroll-snap-align: center;
+				scroll-snap-stop: always;
 				display: grid;
 				grid-template-columns: calc(2 * var(--unit)) repeat(12, 1fr) calc(
 						2 * var(--unit)

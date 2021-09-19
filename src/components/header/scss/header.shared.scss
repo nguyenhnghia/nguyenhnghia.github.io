@@ -10,92 +10,47 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 10;
-	transition: 0.4s;
+	z-index: 100;
 	&_title {
-		grid-column: 2/7;
+		grid-column: 2/-2;
 		grid-row: 1/1;
 		justify-self: start;
 		align-self: center;
 		width: 100%;
 		height: calc(0.9 * var(--header-unit));
 		overflow: hidden;
-		z-index: 10;
-		opacity: 0;
-		@include floatX(calc(-0.75 * var(--header-unit)), 0, forwards, true);
-		.list_item,
-		%title_list_item {
-			position: absolute;
-			transform: translateY(-50%);
-			top: 50%;
-			left: 0;
-			@include floatY(-50%, 100%, forwards, false);
-			animation-duration: 0.4s;
-			.text {
-				display: block;
-				font-family: poppins;
-				font-size: calc(0.65 * var(--header-unit));
-				font-weight: 500;
-				user-select: none;
-			}
-			&-active {
-				@extend %title_list_item;
-				@include floatY(-150%, -50%, forwards, false);
-				animation-duration: 0.4s;
-				.text {
-					text-decoration: none;
-				}
-			}
-		}
-	}
-	.button {
-		&-expand,
-		&-collapse {
-			z-index: 30;
-			height: calc(1 * var(--header-unit));
-			width: calc(1 * var(--header-unit));
-			justify-self: end;
-			align-self: center;
-			grid-column: -3/-2;
-			grid-row: 1/1;
+		.list {
 			display: flex;
 			flex-direction: column;
-			justify-content: space-evenly;
-			align-items: center;
-			.line {
-				width: 80%;
-				height: 10%;
-				border-radius: 20px;
-				transition: 0.4s;
-				&-top {
-					@extend .line;
-				}
-				&-center {
-					@extend .line;
-				}
-				&-bottom {
-					@extend .line;
-				}
-			}
-		}
-		&-collapse {
-			.line {
-				&-top {
-					transform-origin: right;
-					transform: rotate(-45deg);
-				}
-				&-center {
-					transform: translateX(120%);
-				}
-				&-bottom {
-					transform-origin: right;
-					transform: rotate(45deg);
+			align-items: flex-start;
+			.list_item {
+				height: calc(0.9 * var(--header-unit));
+				.text {
+					display: block;
+					font-family: poppins;
+					font-size: calc(0.65 * var(--header-unit));
+					font-weight: 500;
+					user-select: none;
 				}
 			}
 		}
 	}
 	&_navigator {
-		z-index: 20;
+		grid-column: 2/-2;
+		grid-row: 1/1;
+		justify-self: end;
+		align-self: center;
+		display: flex;
+		align-items: center;
+		gap: calc(0.75 * var(--header-unit));
+		.navigator {
+			.list {
+				gap: calc(0.75 * var(--header-unit));
+			}
+		}
+		.switcher {
+			font-size: calc(0.9 * var(--header-unit));
+		}
 	}
 }
 @import "./header.media.scss";

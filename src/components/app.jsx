@@ -20,7 +20,7 @@ class app extends React.Component {
 		super(props);
 		var currentTime = new Date();
 		this.state = {
-			darkModeState:
+			darkMode:
 				currentTime.getHours() >= 18 || currentTime.getHours() <= 5,
 			sections: [
 				{
@@ -54,73 +54,79 @@ class app extends React.Component {
 			],
 		};
 	}
-	handleSectionsStateChanged = (targetID) => {
-		var newSectionsState = [];
-		this.state.sections.map((section) => {
-			section.id === targetID
-				? newSectionsState.push({ ...section, active: true })
-				: newSectionsState.push({ ...section, active: false });
-			return newSectionsState;
-		});
-		this.setState({ sections: newSectionsState });
+	handleScroll = (event) => {
+		let app = document.getElementsByClassName("app")[0];
+		let target = event.target;
+		let scrollPosition = (
+			((target.scrollTop + target.clientHeight) / target.scrollHeight) *
+			100
+		).toFixed(0);
+		app.classList = `app scroll-${scrollPosition}`;
+		scrollPosition < 37 && this.handleSectionsStateChanged(0);
+		scrollPosition >= 37 &&
+			scrollPosition < 62 &&
+			this.handleSectionsStateChanged(1);
+		scrollPosition >= 62 &&
+			scrollPosition < 87 &&
+			this.handleSectionsStateChanged(2);
+		scrollPosition >= 87 && this.handleSectionsStateChanged(3);
 	};
-	handleDarkModeStateChanged = () => {
+	handleSectionsStateChanged = (targetIndex) => {
+		let targetID = this.state.sections[targetIndex].id;
+		if (this.state.sections[targetIndex].active) {
+			return;
+		} else {
+			let newSectionsState = [];
+			this.state.sections.forEach((section) => {
+				section.id === targetID
+					? newSectionsState.push({ ...section, active: true })
+					: newSectionsState.push({ ...section, active: false });
+			});
+			this.setState({ sections: newSectionsState });
+		}
+	};
+	handleNavigate = (targetID) => {
+		document.getElementsByClassName(targetID)[0].scrollIntoView();
+	};
+	handleDarkModeChanged = () => {
 		this.setState({
-			darkModeState: !this.state.darkModeState,
+			darkMode: !this.state.darkMode,
 		});
 	};
 	render() {
+		console.log("app rendered");
 		return (
-			<div className="app">
+			<div className="app scroll-25" onScroll={this.handleScroll}>
 				<Header
 					blockClassName="header"
-					darkModeState={this.state.darkModeState}
-					darkModeStateChanged={this.handleDarkModeStateChanged}
+					darkMode={this.state.darkMode}
+					darkModeChanged={this.handleDarkModeChanged}
 					navigator={this.state.sections}
-					navigatorChanged={this.handleSectionsStateChanged}
+					navigate={this.handleNavigate}
 				/>
-				<Portrait
-					darkModeState={this.state.darkModeState}
-					modifier={
-						this.state.sections[0].active
-							? "home"
-							: this.state.sections[1].active
-							? "about"
-							: "hide"
-					}
+				<Portrait darkMode={this.state.darkMode} />
+				<HomeSection
+					blockClassName={this.state.sections[0].id}
+					darkMode={this.state.darkMode}
+					sections={this.state.sections}
+					navigate={this.handleNavigate}
 				/>
-				{this.state.sections[0].active && (
-					<HomeSection
-						blockClassName={this.state.sections[0].id}
-						darkModeState={this.state.darkModeState}
-						sections={this.state.sections}
-						sectionsChanged={this.handleSectionsStateChanged}
-					/>
-				)}
-				{this.state.sections[1].active && (
-					<AboutSection
-						blockClassName={this.state.sections[1].id}
-						darkModeState={this.state.darkModeState}
-						sections={this.state.sections}
-						sectionsChanged={this.handleSectionsStateChanged}
-					/>
-				)}
-				{this.state.sections[2].active && (
-					<WorksSection
-						blockClassName={this.state.sections[2].id}
-						darkModeState={this.state.darkModeState}
-						sections={this.state.sections}
-						sectionsChanged={this.handleSectionsStateChanged}
-					/>
-				)}
-				{this.state.sections[3].active && (
-					<ContactSection
-						blockClassName={this.state.sections[3].id}
-						darkModeState={this.state.darkModeState}
-						sections={this.state.sections}
-						sectionsChanged={this.handleSectionsStateChanged}
-					/>
-				)}
+				<AboutSection
+					blockClassName={this.state.sections[1].id}
+					darkMode={this.state.darkMode}
+					sections={this.state.sections}
+					navigate={this.handleNavigate}
+				/>
+				<WorksSection
+					blockClassName={this.state.sections[2].id}
+					darkMode={this.state.darkMode}
+					sections={this.state.sections}
+				/>
+				<ContactSection
+					blockClassName={this.state.sections[3].id}
+					darkMode={this.state.darkMode}
+					sections={this.state.sections}
+				/>
 			</div>
 		);
 	}

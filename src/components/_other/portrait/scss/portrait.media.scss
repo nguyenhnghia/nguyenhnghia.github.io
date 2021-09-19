@@ -7,20 +7,13 @@
 }
 @media (max-width: 961.9px) {
 	.portrait {
-		animation: none;
-		inset: 0;
+		width: unset;
+		inset: 0 !important;
 		background: transparent !important;
 		&::after {
 			content: "";
 			position: absolute;
 			inset: 30% 0 0 0;
-			@include floatY(100%, 0, forwards, true);
-			animation-duration: 0.4s;
-		}
-		img {
-			width: calc(55% + 8 * var(--portrait-unit));
-			left: 0;
-			animation-delay: 0s;
 		}
 	}
 }
@@ -29,18 +22,35 @@
 	.portrait {
 		img {
 			width: calc(60% + 8 * var(--portrait-unit));
-			left: 0;
-			animation-delay: 0s;
-		}
-		&-about {
-			display: block;
 		}
 	}
 }
 @media (max-width: 767.9px) {
+	@mixin on-scroll-animation {
+		@for $i from 0 through 75 {
+			.app.scroll-#{25 + $i} {
+				@if $i >= 12 {
+					.portrait {
+						transform: translateX(-25vw);
+						opacity: 0;
+					}
+				}
+			}
+		}
+	}
+	@include on-scroll-animation();
+}
+@media (min-width: 414px) and(max-width: 767.9px) {
 	.portrait {
-		&-about {
-			display: none;
+		img {
+			width: calc(60% + 10 * var(--portrait-unit));
+		}
+	}
+}
+@media (max-width: 413.9px) {
+	.portrait {
+		img {
+			width: calc(50% + 7.5 * var(--portrait-unit));
 		}
 	}
 }

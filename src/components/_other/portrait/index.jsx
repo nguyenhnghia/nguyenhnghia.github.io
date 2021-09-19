@@ -12,13 +12,15 @@ class portrait extends React.Component {
 		portrait.src = imageSrc;
 		window[imageSrc] = portrait;
 	}
+	componentWillUnmount() {
+		delete window[imageSrc];
+	}
 	render() {
+		let darkModeClass = this.props.darkMode
+			? "portrait-dark"
+			: "portrait-light";
 		return (
-			<div
-				className={`portrait portrait-${
-					this.props.darkModeState ? "dark" : "light"
-				} portrait-${this.props.modifier}`}
-			>
+			<div className={`portrait ${darkModeClass}`}>
 				<img src={imageSrc} alt="portrait" />
 			</div>
 		);

@@ -7,8 +7,6 @@
 		align-self: center;
 		justify-self: start;
 		z-index: 5;
-		opacity: 0;
-		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
 		sub {
 			font-family: visueltPro;
 			font-size: calc(0.75 * var(--section-unit));
@@ -36,8 +34,6 @@
 		font-size: calc(0.45 * var(--section-unit));
 		font-weight: 100;
 		z-index: 5;
-		opacity: 0;
-		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
 	}
 	&_buttonGroup {
 		grid-area: 9/2/12/11;
@@ -46,8 +42,7 @@
 		display: flex;
 		gap: calc(0.5 * var(--section-unit));
 		z-index: 5;
-		opacity: 0;
-		@include floatY(calc(0.5 * var(--section-unit)), 0, forwards, true);
+		transition: 0.4s;
 		.button {
 			&-cta,
 			&-ghost {

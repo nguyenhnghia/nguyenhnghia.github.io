@@ -8,6 +8,7 @@
 		grid-gap: 5%;
 		.content {
 			&_details {
+				transition: 0.4s;
 				display: flex;
 				flex-direction: column;
 				gap: calc(0.5 * var(--section-unit));
@@ -58,6 +59,7 @@
 				}
 			}
 			&_images {
+				transition: 0.4s;
 				align-self: center;
 				.devices {
 					@include floatX(130%, 0, forwards, false);
@@ -99,13 +101,7 @@
 			gap: calc(0.85 * var(--section-unit));
 			.list_item,
 			%list_item {
-				opacity: 0;
-				@include floatY(
-					calc(0.5 * var(--section-unit)),
-					calc(0 * var(--section-unit)),
-					forwards,
-					true
-				);
+				transition: 0.4s;
 				.button {
 					.text {
 						opacity: 0.15;

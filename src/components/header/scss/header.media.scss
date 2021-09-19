@@ -1,62 +1,45 @@
 @media (min-width: 768px) {
 	.header {
-		.button-toggle {
-			pointer-events: none;
-			display: none;
-		}
 		&_navigator {
-			grid-column: 7/-2;
-			grid-row: 1/1;
-			justify-self: end;
-			align-self: center;
-			.list {
-				gap: calc(0.75 * var(--header-unit));
-				.list_item,
-				%navigator_list_item_mi768 {
-					opacity: 0;
-					@include floatX(
-						calc(0.75 * var(--header-unit)),
-						0,
-						forwards,
-						true
-					);
-					.button {
-						border-radius: calc(0.45 * var(--header-unit));
-						font-family: poppins;
-						font-size: calc(0.45 * var(--header-unit));
-						font-weight: 300;
-						svg {
-							display: none;
-						}
-						.text {
-							padding: calc(0.225 * var(--header-unit))
-								calc(0.6 * var(--header-unit));
-						}
-						&:hover {
+			.navigator {
+				.list {
+					&_item,
+					%lst_itm_mi768 {
+						.button {
+							border-radius: calc(0.45 * var(--header-unit));
+							font-family: poppins;
+							font-size: calc(0.45 * var(--header-unit));
+							font-weight: 300;
+							&::before {
+								content: "";
+								font-size: inherit;
+								transition: all 0.4s, font-size 0s;
+								transform: translate(-50%, 50%);
+								position: absolute;
+								left: 50%;
+								width: 0.36em;
+								aspect-ratio: 1/1;
+								border-radius: 50%;
+								z-index: 0;
+								opacity: 0;
+							}
+							svg {
+								display: none;
+							}
 							.text {
-								opacity: 0.5;
+								padding: calc(0.225 * var(--header-unit))
+									calc(0.6 * var(--header-unit));
 							}
 						}
-					}
-					.switcher {
-						font-size: calc(0.9 * var(--header-unit));
-						grid-column: 13/14;
-						grid-row: 1/1;
-						justify-self: end;
-						align-self: center;
-						opacity: 0;
-						@include floatX(
-							calc(0.75 * var(--header-unit)),
-							0,
-							forwards,
-							true
-						);
-					}
-					&-active {
-						@extend %navigator_list_item_mi768;
-						.button:hover {
-							.text {
-								opacity: 1;
+						&-active {
+							@extend %lst_itm_mi768;
+							.button {
+								&::before {
+									opacity: 1 !important;
+								}
+								.text {
+									text-decoration: none;
+								}
 							}
 						}
 					}
@@ -69,22 +52,11 @@
 	.header {
 		&_navigator {
 			.list {
-				.list_item,
-				%navigator_list_item_mi1024 {
+				&_item,
+				%nvg_lst_itm_mi1024 {
 					.button {
 						&::before {
-							content: "";
-							font-size: inherit;
-							transition: 0.4s;
-							position: absolute;
-							opacity: 0;
-							transform: translate(-50%, 50%);
-							left: 50%;
 							bottom: 0.18em;
-							width: 0.36em;
-							aspect-ratio: 1/1;
-							border-radius: 50%;
-							z-index: 0;
 						}
 						&:hover::before {
 							opacity: 1;
@@ -93,14 +65,13 @@
 						}
 					}
 					&-active {
-						@extend %navigator_list_item_mi1024;
+						@extend %nvg_lst_itm_mi1024;
 						.button {
 							&::before {
 								opacity: 1;
 							}
 							.text {
 								opacity: 1;
-								text-decoration: none;
 							}
 						}
 					}
@@ -117,18 +88,7 @@
 				%navigator_list_item_mi768_max1023 {
 					.button {
 						&::before {
-							content: "";
-							font-size: inherit;
-							transition: 0.4s;
-							position: absolute;
-							opacity: 0;
-							transform: translate(-50%, 50%);
-							left: 50%;
 							bottom: 50%;
-							width: 0.36em;
-							aspect-ratio: 1/1;
-							border-radius: 50%;
-							z-index: 0;
 						}
 					}
 					&-active {
@@ -140,7 +100,7 @@
 							}
 							&::before {
 								opacity: 1;
-								width: 120%;
+								width: 120% !important;
 							}
 						}
 					}
@@ -149,96 +109,32 @@
 		}
 	}
 }
-@media (max-width: 767.9px) {
-	.header {
-		&_title {
-			grid-column: 2/-2;
-		}
-		.button-toggle.button {
-			&-collapse {
-				& + .navigator {
-					right: 0;
-				}
-			}
-			&-expand {
-				& + .navigator {
-					&::before {
-						content: unset !important;
-					}
-					right: -100%;
-				}
-			}
-		}
-		&_navigator {
-			transition: 0.4s;
-			padding: calc(0.5 * var(--header-unit));
-			padding-top: calc(2 * var(--header-unit));
-			position: fixed;
-			height: 100vh;
-			width: calc(8 * var(--header-unit));
-			top: 0;
-			bottom: 0;
-			&::before {
-				content: "";
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100vw;
-				height: 100vh;
-				opacity: 0.5;
-				z-index: -1;
-				transition: 0.4s;
-			}
-			&::after {
-				content: "";
-				position: absolute;
-				inset: 0;
-				z-index: -1;
-				transition: 0.4s;
-			}
-			.list {
-				display: block;
-				.list_item,
-				%list_item_ma767 {
-					margin-top: calc(0.8 * var(--header-unit));
-					.button {
-						width: 100%;
-						display: flex;
-						justify-content: flex-start;
-						align-items: center;
-						font-family: poppins;
-						font-size: calc(0.6 * var(--header-unit));
-						font-weight: 300;
-						svg {
-							margin-right: calc(0.8 * var(--header-unit));
-							font-size: calc(0.8 * var(--header-unit));
-							transition: 0.4s;
-						}
-						.text {
-							padding: calc(0.225 * var(--header-unit))
-								calc(0.6 * var(--header-unit));
-						}
-					}
-					&:last-child {
-						position: absolute;
-						top: 0;
-						left: 0;
-						margin-top: 0;
-						.switcher {
-							font-size: calc(0.8 * var(--header-unit));
-							transform: translateY(-115%);
-						}
-					}
-					&-active {
-						@extend %list_item_ma767;
-						.button {
-							.text {
-								text-decoration: none;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
+// @media (max-width: 767.9px) {
+// 	.header {
+// 		&_title {
+// 			grid-column: 2/-2;
+// 		}
+// 		&_navigator {
+// 			.list {
+// 				&_item,
+// 				%navigator_list_item_max767 {
+// 					&:not(:last-child()) {
+// 						position: fixed;
+// 						bottom: 0;
+// 						.button {
+// 							svg {
+// 								display: block;
+// 							}
+// 							.text {
+// 								display: none;
+// 							}
+// 						}
+// 					}
+// 					&-active {
+// 						@extend %navigator_list_item_max767;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }

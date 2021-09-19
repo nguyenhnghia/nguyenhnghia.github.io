@@ -15,12 +15,12 @@ class homeSection extends React.Component {
 		return (
 			<Section
 				extraClasses={
-					this.props.darkModeState
+					this.props.darkMode
 						? `section-dark ${this.props.blockClassName}`
 						: `section-light ${this.props.blockClassName}`
 				}
 				wheelDown={() => {
-					this.props.sectionsChanged(this.props.sections[1].id);
+					// this.props.sectionsChanged(this.props.sections[1].id);
 				}}
 			>
 				<Text
@@ -46,9 +46,7 @@ class homeSection extends React.Component {
 					<Button
 						extraClasses="button-ghost"
 						clicked={() =>
-							this.props.sectionsChanged(
-								this.props.sections[2].id
-							)
+							this.props.navigate(this.props.sections[2].id)
 						}
 					>
 						<Text>

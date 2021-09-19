@@ -52,36 +52,6 @@ class worksSection extends React.Component {
 			],
 		};
 	}
-	handleWheelUp = (targetID) => {
-		const firstProject = this.state.projects[0].id;
-		var currentProject = 0;
-		this.state.projects.forEach((project, index) => {
-			if (project.active) {
-				currentProject = index;
-			}
-		});
-		this.state.projects[currentProject].id === firstProject
-			? this.props.sectionsChanged(targetID)
-			: this.handleProjectChanged(
-					this.state.projects[currentProject - 1].id
-			  );
-	};
-
-	handleWheelDown = (targetID) => {
-		const lastProject =
-			this.state.projects[this.state.projects.length - 1].id;
-		var currentProject = 0;
-		this.state.projects.forEach((project, index) => {
-			if (project.active) {
-				currentProject = index;
-			}
-		});
-		this.state.projects[currentProject].id === lastProject
-			? this.props.sectionsChanged(targetID)
-			: this.handleProjectChanged(
-					this.state.projects[currentProject + 1].id
-			  );
-	};
 	handleProjectChanged = (targetID) => {
 		var newProjectsState = [];
 		this.state.projects.map((project) => {
@@ -96,16 +66,10 @@ class worksSection extends React.Component {
 		return (
 			<Section
 				extraClasses={
-					this.props.darkModeState
+					this.props.darkMode
 						? `section-dark ${this.props.blockClassName}`
 						: `section-light ${this.props.blockClassName}`
 				}
-				wheelUp={() => {
-					this.handleWheelUp(this.props.sections[1].id);
-				}}
-				wheelDown={() => {
-					this.handleWheelDown(this.props.sections[3].id);
-				}}
 			>
 				{this.state.projects.map((project, index) => {
 					return (
@@ -159,9 +123,7 @@ class worksSection extends React.Component {
 							<Button
 								key={project.id}
 								activated={project.active}
-								itemExtraClasses={`anm-dr-4x anm-dl-${
-									6 + index
-								}x`}
+								itemExtraClasses={`tst-dl-${index}x`}
 								clicked={() => {
 									this.handleProjectChanged(project.id);
 								}}

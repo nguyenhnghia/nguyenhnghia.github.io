@@ -9,9 +9,6 @@
 		font-family: visueltPro;
 		font-size: calc(1.5 * var(--section-unit));
 		font-weight: 500;
-		opacity: 0;
-		@include fade(0, 1, forwards);
-		animation-duration: 0.4s;
 	}
 	&_bio {
 		grid-area: 5/7/10/14;
@@ -23,8 +20,7 @@
 		align-self: center;
 		text-align: justify;
 		p {
-			opacity: 0;
-			@include floatY(calc(1 * var(--section-unit)), 0em, forwards, true);
+			transition: 0.4s;
 			& + p {
 				margin-top: calc(0.4 * var(--section-unit));
 			}
@@ -47,7 +43,7 @@
 				content: "";
 				position: absolute;
 				width: 0;
-				height: 0.1em;
+				height: 0.08em;
 				bottom: 0.05em;
 				right: 0;
 				background-color: currentColor;
@@ -68,8 +64,7 @@
 		justify-self: start;
 		align-self: center;
 		z-index: 5;
-		opacity: 0;
-		@include floatY(calc(1 * var(--section-unit)), 0em, forwards, true);
+		transition: 0.4s;
 		.text {
 			font-family: poppins;
 			font-size: calc(0.45 * var(--section-unit));

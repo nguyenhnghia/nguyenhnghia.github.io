@@ -11,9 +11,6 @@
 		justify-self: center;
 		align-self: center;
 		text-align: center;
-		opacity: 0;
-		@include floatY(calc(1 * var(--section-unit)), 0, forwards, true);
-		animation-duration: 0.4s;
 		&::before {
 			content: "?";
 			position: absolute;
@@ -29,10 +26,6 @@
 		justify-self: center;
 		align-self: center;
 		text-align: center;
-		opacity: 0;
-		@include floatY(calc(1 * var(--section-unit)), 0, forwards, true);
-		animation-duration: 0.4s;
-		animation-delay: 0.1s;
 		.button {
 			display: inline-block;
 			background: transparent;
@@ -67,13 +60,6 @@
 		display: flex;
 		gap: calc(1 * var(--section-unit));
 		.list_item {
-			opacity: 0;
-			@include floatX(
-				calc(-0.5 * var(--section-unit)),
-				0,
-				forwards,
-				true
-			);
 			.button {
 				background: transparent;
 				padding: 0.4em;

@@ -16,37 +16,29 @@ class aboutSection extends React.Component {
 		return (
 			<Section
 				extraClasses={
-					this.props.darkModeState
+					this.props.darkMode
 						? `section-dark ${this.props.blockClassName}`
 						: `section-light ${this.props.blockClassName}`
 				}
-				wheelUp={() => {
-					this.props.sectionsChanged(this.props.sections[0].id);
-				}}
-				wheelDown={() => {
-					this.props.sectionsChanged(this.props.sections[2].id);
-				}}
 			>
 				<Text extraClasses={`${this.props.blockClassName}_quotes`}>
 					Never stop learning !
 				</Text>
 				<Text extraClasses={`${this.props.blockClassName}_bio`}>
-					<p className="anm-dr-4x anm-dl-6x">
+					<p>
 						Hello! My name is Nguyen Huu Nghia. I'm a front-end
 						fresher with serious passion for user interface and user
 						experiences development. My main focus is building
 						helpful, easy-to-use websites that can run smoothly
 						across different devices.
 					</p>
-					<p className="anm-dr-4x anm-dl-7x">
+					<p>
 						With a great desire to master front-end skills, I spend
 						time for self learning and practicing through my
 						personal projects.{" "}
 						<Button
 							clicked={() =>
-								this.props.sectionsChanged(
-									this.props.sections[2].id
-								)
+								this.props.navigate(this.props.sections[2].id)
 							}
 						>
 							<Text>
@@ -55,16 +47,14 @@ class aboutSection extends React.Component {
 							</Text>
 						</Button>
 					</p>
-					<p className="anm-dr-4x anm-dl-8x">
+					<p>
 						My career goals are becoming a senior developer within 5
 						years and becoming a UX-UI designer within 10 years.
 						Therefore, I'm currently seeking for a front-end fresher
 						position to gain more experiences.{" "}
 						<Button
 							clicked={() =>
-								this.props.sectionsChanged(
-									this.props.sections[3].id
-								)
+								this.props.navigate(this.props.sections[3].id)
 							}
 						>
 							<Text>
@@ -74,9 +64,7 @@ class aboutSection extends React.Component {
 						</Button>
 					</p>
 				</Text>
-				<div
-					className={`${this.props.blockClassName}_skills anm-dr-4x anm-dl-9x`}
-				>
+				<div className={`${this.props.blockClassName}_skills`}>
 					<Text>Here are some technologies I can work with:</Text>
 					<List>
 						{skills.map((skill, index) => {
