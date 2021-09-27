@@ -94,7 +94,6 @@ class app extends React.Component {
 		});
 	};
 	render() {
-		console.log("app rendered");
 		return (
 			<div className="app scroll-25" onScroll={this.handleScroll}>
 				<Header
