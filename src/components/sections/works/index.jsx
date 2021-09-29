@@ -1,11 +1,12 @@
 import React from "react";
 
-import Section from "../../_common/section";
-import Text from "../../_common/text";
-import Button from "../../_common/button";
+import { DarkModeContext } from "../../../contexts/darkModeContext/context";
 import Navigator from "../../_common/navigator";
-import List from "../../_common/list";
+import Section from "../../_common/section";
 import Laptop from "../../_other/devices";
+import Button from "../../_common/button";
+import Text from "../../_common/text";
+import List from "../../_common/list";
 
 import projectImage from "../../../image/pj1.png";
 
@@ -64,78 +65,89 @@ class worksSection extends React.Component {
 	};
 	render() {
 		return (
-			<Section
-				extraClasses={
-					this.props.darkMode
-						? `section-dark ${this.props.blockClassName}`
-						: `section-light ${this.props.blockClassName}`
-				}
-			>
-				{this.state.projects.map((project, index) => {
+			<DarkModeContext.Consumer>
+				{({ darkModeState }) => {
 					return (
-						project.active && (
-							<div
-								key={project.id}
-								className={`${this.props.blockClassName}_content`}
+						<Section
+							extraClasses={
+								darkModeState
+									? `section-dark ${this.props.blockClassName}`
+									: `section-light ${this.props.blockClassName}`
+							}
+						>
+							{this.state.projects.map((project, index) => {
+								return (
+									project.active && (
+										<div
+											key={project.id}
+											className={`${this.props.blockClassName}_content`}
+										>
+											<div className="content_details">
+												<Text extraClasses="title">
+													{project.name}
+												</Text>
+												<List extraClasses="technologies">
+													{project.technologies.map(
+														(technology, index) => {
+															return (
+																<Text
+																	key={index}
+																	itemExtraClasses={`anm-dr-4x anm-dl-${
+																		6 +
+																		index
+																	}x`}
+																	extraClasses="text-tag"
+																>
+																	{technology}
+																</Text>
+															);
+														},
+													)}
+												</List>
+												<Text extraClasses="description">
+													{project.briefDescription}
+												</Text>
+											</div>
+											<div className="content_images">
+												<Laptop>
+													<img
+														src={projectImage}
+														alt="projectImage"
+													/>
+												</Laptop>
+											</div>
+										</div>
+									)
+								);
+							})}
+							<Navigator
+								extraClasses={`${this.props.blockClassName}_navigator`}
 							>
-								<div className="content_details">
-									<Text extraClasses="title">
-										{project.name}
-									</Text>
-									<List extraClasses="technologies">
-										{project.technologies.map(
-											(technology, index) => {
-												return (
-													<Text
-														key={index}
-														itemExtraClasses={`anm-dr-4x anm-dl-${
-															6 + index
-														}x`}
-														extraClasses="text-tag"
-													>
-														{technology}
-													</Text>
+								{this.state.projects.map((project, index) => {
+									return (
+										<Button
+											key={project.id}
+											activated={project.active}
+											itemExtraClasses={`tst-dl-${index}x`}
+											clicked={() => {
+												this.handleProjectChanged(
+													project.id,
 												);
-											}
-										)}
-									</List>
-									<Text extraClasses="description">
-										{project.briefDescription}
-									</Text>
-								</div>
-								<div className="content_images">
-									<Laptop>
-										<img
-											src={projectImage}
-											alt="projectImage"
-										/>
-									</Laptop>
-								</div>
-							</div>
-						)
+											}}
+										>
+											<Text>
+												{index < 9
+													? `0${1 + index}`
+													: 1 + index}
+											</Text>
+										</Button>
+									);
+								})}
+							</Navigator>
+						</Section>
 					);
-				})}
-				<Navigator
-					extraClasses={`${this.props.blockClassName}_navigator`}
-				>
-					{this.state.projects.map((project, index) => {
-						return (
-							<Button
-								key={project.id}
-								activated={project.active}
-								itemExtraClasses={`tst-dl-${index}x`}
-								clicked={() => {
-									this.handleProjectChanged(project.id);
-								}}
-							>
-								<Text>
-									{index < 9 ? `0${1 + index}` : 1 + index}
-								</Text>
-							</Button>
-						);
-					})}
-				</Navigator>
-			</Section>
+				}}
+			</DarkModeContext.Consumer>
 		);
 	}
 }

@@ -1,5 +1,6 @@
 import React from "react";
 
+import { DarkModeContext } from "../../contexts/darkModeContext/context";
 import Navigator from "../_common/navigator";
 import Switcher from "../_common/switcher";
 import Button from "../_common/button";
@@ -17,53 +18,65 @@ class header extends React.Component {
 	};
 	render() {
 		return (
-			<header
-				className={
-					this.props.darkMode
-						? `header ${this.props.blockClassName}-dark`
-						: `header ${this.props.blockClassName}-light`
-				}
-			>
-				<div className={`${this.props.blockClassName}_title`}>
-					<List>
-						{this.props.navigator.map((section) => {
-							return (
-								<Text key={section.id}>{section.title}</Text>
-							);
-						})}
-					</List>
-				</div>
-				<div className={`${this.props.blockClassName}_navigator`}>
-					<Navigator>
-						{this.props.navigator.map((section, index) => {
-							return (
-								<Button
-									key={section.id}
-									activated={section.active}
-									clicked={() =>
-										this.handleNavigatorButtonClicked(
-											section.id
-										)
-									}
-								>
-									{section.icon}
-									<Text>{section.name}</Text>
-								</Button>
-							);
-						})}
-					</Navigator>
-					<Switcher
-						switchState={this.props.darkMode}
-						switcherIcons={{
-							unSwitched: <RiSunFill />,
-							switched: <RiMoonFill />,
-						}}
-						switchStateChanged={() => {
-							this.props.darkModeChanged();
-						}}
-					/>
-				</div>
-			</header>
+			<DarkModeContext.Consumer>
+				{({ darkModeState, darkModeChanged }) => {
+					return (
+						<header
+							className={
+								darkModeState
+									? `header ${this.props.blockClassName}-dark`
+									: `header ${this.props.blockClassName}-light`
+							}
+						>
+							<div
+								className={`${this.props.blockClassName}_title`}
+							>
+								<List>
+									{this.props.navigator.map((section) => {
+										return (
+											<Text key={section.id}>
+												{section.title}
+											</Text>
+										);
+									})}
+								</List>
+							</div>
+							<div
+								className={`${this.props.blockClassName}_navigator`}
+							>
+								<Navigator>
+									{this.props.navigator.map(
+										(section, index) => {
+											return (
+												<Button
+													key={section.id}
+													activated={section.active}
+													clicked={() =>
+														this.handleNavigatorButtonClicked(
+															section.id,
+														)
+													}
+												>
+													{section.icon}
+													<Text>{section.name}</Text>
+												</Button>
+											);
+										},
+									)}
+								</Navigator>
+								<Switcher
+									switchState={darkModeState}
+									switcherIcons={{
+										unSwitched: <RiSunFill />,
+										switched: <RiMoonFill />,
+									}}
+									switchStateChanged={darkModeChanged}
+								/>
+							</div>
+						</header>
+					);
+				}}
+			</DarkModeContext.Consumer>
 		);
 	}
 }

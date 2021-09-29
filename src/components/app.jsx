@@ -8,7 +8,7 @@ import ContactSection from "./sections/contact";
 import Portrait from "./_other/portrait";
 
 import {
-	RiPushpinLine,
+	RiBookmark3Line,
 	RiSendPlaneLine,
 	RiUserLine,
 	RiHome2Line,
@@ -18,10 +18,7 @@ import "./app.scss";
 class app extends React.Component {
 	constructor(props) {
 		super(props);
-		var currentTime = new Date();
 		this.state = {
-			darkMode:
-				currentTime.getHours() >= 18 || currentTime.getHours() <= 5,
 			sections: [
 				{
 					id: "home",
@@ -42,7 +39,7 @@ class app extends React.Component {
 					name: "Works",
 					title: "Things I've built",
 					active: false,
-					icon: <RiPushpinLine />,
+					icon: <RiBookmark3Line />,
 				},
 				{
 					id: "contact",
@@ -88,42 +85,31 @@ class app extends React.Component {
 	handleNavigate = (targetID) => {
 		document.getElementsByClassName(targetID)[0].scrollIntoView();
 	};
-	handleDarkModeChanged = () => {
-		this.setState({
-			darkMode: !this.state.darkMode,
-		});
-	};
 	render() {
 		return (
 			<div className="app scroll-25" onScroll={this.handleScroll}>
 				<Header
 					blockClassName="header"
-					darkMode={this.state.darkMode}
-					darkModeChanged={this.handleDarkModeChanged}
 					navigator={this.state.sections}
 					navigate={this.handleNavigate}
 				/>
 				<Portrait darkMode={this.state.darkMode} />
 				<HomeSection
 					blockClassName={this.state.sections[0].id}
-					darkMode={this.state.darkMode}
 					sections={this.state.sections}
 					navigate={this.handleNavigate}
 				/>
 				<AboutSection
 					blockClassName={this.state.sections[1].id}
-					darkMode={this.state.darkMode}
 					sections={this.state.sections}
 					navigate={this.handleNavigate}
 				/>
 				<WorksSection
 					blockClassName={this.state.sections[2].id}
-					darkMode={this.state.darkMode}
 					sections={this.state.sections}
 				/>
 				<ContactSection
 					blockClassName={this.state.sections[3].id}
-					darkMode={this.state.darkMode}
 					sections={this.state.sections}
 				/>
 			</div>
