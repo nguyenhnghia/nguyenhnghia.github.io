@@ -22,36 +22,37 @@ class homeSection extends React.Component {
 								darkModeState
 									? `section-dark ${this.props.blockClassName}`
 									: `section-light ${this.props.blockClassName}`
-							}
-						>
+							}>
 							<Text
-								extraClasses={`${this.props.blockClassName}_title`}
-							>
+								extraClasses={`${this.props.blockClassName}_title`}>
 								<sub>I'm a</sub>
 								<h1>Frontend Developer</h1>
 							</Text>
 							<Text
-								extraClasses={`${this.props.blockClassName}_content`}
-							>
+								extraClasses={`${this.props.blockClassName}_content`}>
 								Hello, I'm Nguyen Huu Nghia, I do things to make
 								websites look nice and easy to use.
 								<br /> A front-end fresher with serious passion
 								for front-end development and UI/UX.
 							</Text>
 							<div
-								className={`${this.props.blockClassName}_buttonGroup`}
-							>
-								<Button extraClasses="button-cta">
+								className={`${this.props.blockClassName}_buttonGroup`}>
+								<Button
+									extraClasses="button-cta"
+									clicked={() =>
+										window.open(
+											`${process.env.PUBLIC_URL}/files/NguyenHuuNghia.Resume.pdf`
+										)
+									}>
 									<Text>read my resume</Text>
 								</Button>
 								<Button
 									extraClasses="button-ghost"
 									clicked={() =>
 										this.props.navigate(
-											this.props.sections[2].id,
+											this.props.sections[2].id
 										)
-									}
-								>
+									}>
 									<Text>
 										see my works
 										<RiArrowRightLine />

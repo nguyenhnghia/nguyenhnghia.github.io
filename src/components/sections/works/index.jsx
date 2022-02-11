@@ -8,8 +8,6 @@ import Button from "../../_common/button";
 import Text from "../../_common/text";
 import List from "../../_common/list";
 
-import projectImage from "../../../image/pj1.png";
-
 import "./scss/works.shared.scss";
 import "./scss/works.dark.scss";
 import "./scss/works.light.scss";
@@ -22,32 +20,18 @@ class worksSection extends React.Component {
 					id: "project1",
 					name: "coming soon",
 					briefDescription:
-						"Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut provident dolorem id sequi vitae quod totam explicabo, tempora ex nulla aliquam? Ipsam architecto nam cum maiores, error quis eum dicta?",
-					technologies: ["HTML5", "CSS3", "Sass"],
+						"I think the best way to get myself upgrades everyday is to work. Therefore, a new web application is in process at this time. I believe that it's worth waiting for.",
+					technologies: [],
+					image: `${process.env.PUBLIC_URL}/image/comingSoon.relx.jpg`,
 					active: true,
 				},
 				{
 					id: "project2",
 					name: "coming soon",
 					briefDescription:
-						"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque harum ea repellendus laudantium recusandae officiis fugit magni nemo, officia similique!",
-					technologies: ["HTML5", "CSS3", "JS"],
-					active: false,
-				},
-				{
-					id: "project3",
-					name: "coming soon",
-					briefDescription:
-						"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque harum ea repellendus laudantium recusandae officiis fugit magni nemo, officia similique!",
-					technologies: ["HTML5", "CSS3", "JS"],
-					active: false,
-				},
-				{
-					id: "project4",
-					name: "coming soon",
-					briefDescription:
-						"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque harum ea repellendus laudantium recusandae officiis fugit magni nemo, officia similique!",
-					technologies: ["HTML5", "CSS3", "JS"],
+						"I think the best way to get myself upgrades everyday is to work. Therefore, a new web application is in process at this time. I believe that it's worth waiting for.",
+					technologies: [],
+					image: `${process.env.PUBLIC_URL}/image/comingSoon.novaa.jpg`,
 					active: false,
 				},
 			],
@@ -73,15 +57,13 @@ class worksSection extends React.Component {
 								darkModeState
 									? `section-dark ${this.props.blockClassName}`
 									: `section-light ${this.props.blockClassName}`
-							}
-						>
+							}>
 							{this.state.projects.map((project, index) => {
 								return (
 									project.active && (
 										<div
 											key={project.id}
-											className={`${this.props.blockClassName}_content`}
-										>
+											className={`${this.props.blockClassName}_content`}>
 											<div className="content_details">
 												<Text extraClasses="title">
 													{project.name}
@@ -96,12 +78,11 @@ class worksSection extends React.Component {
 																		6 +
 																		index
 																	}x`}
-																	extraClasses="text-tag"
-																>
+																	extraClasses="text-tag">
 																	{technology}
 																</Text>
 															);
-														},
+														}
 													)}
 												</List>
 												<Text extraClasses="description">
@@ -111,7 +92,7 @@ class worksSection extends React.Component {
 											<div className="content_images">
 												<Laptop>
 													<img
-														src={projectImage}
+														src={project.image}
 														alt="projectImage"
 													/>
 												</Laptop>
@@ -121,8 +102,7 @@ class worksSection extends React.Component {
 								);
 							})}
 							<Navigator
-								extraClasses={`${this.props.blockClassName}_navigator`}
-							>
+								extraClasses={`${this.props.blockClassName}_navigator`}>
 								{this.state.projects.map((project, index) => {
 									return (
 										<Button
@@ -131,10 +111,9 @@ class worksSection extends React.Component {
 											itemExtraClasses={`tst-dl-${index}x`}
 											clicked={() => {
 												this.handleProjectChanged(
-													project.id,
+													project.id
 												);
-											}}
-										>
+											}}>
 											<Text>
 												{index < 9
 													? `0${1 + index}`

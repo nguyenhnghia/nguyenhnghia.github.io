@@ -55,25 +55,28 @@ class contactSection extends React.Component {
 								darkModeState
 									? `section-dark ${this.props.blockClassName}`
 									: `section-light ${this.props.blockClassName}`
-							}
-						>
+							}>
 							<Text
-								extraClasses={`${this.props.blockClassName}_title`}
-							>
+								extraClasses={`${this.props.blockClassName}_title`}>
 								Looking for a<br /> front-end fresher
 							</Text>
 							<Text
-								extraClasses={`${this.props.blockClassName}_paragraph`}
-							>
+								extraClasses={`${this.props.blockClassName}_paragraph`}>
 								To land my first job, I'm currently seeking for
 								a front-end fresher position. So if you are
 								looking for a front-end fresher, why not{" "}
-								<Button>check my resume</Button> and give us a
-								chance to work together ?
+								<Button
+									clicked={() =>
+										window.open(
+											`${process.env.PUBLIC_URL}/files/NguyenHuuNghia.Resume.pdf`
+										)
+									}>
+									check my resume
+								</Button>{" "}
+								and give us a chance to work together ?
 							</Text>
 							<List
-								extraClasses={`${this.props.blockClassName}_list`}
-							>
+								extraClasses={`${this.props.blockClassName}_list`}>
 								{this.state.contactLinks.map((item, index) => {
 									return (
 										<Button
@@ -85,10 +88,9 @@ class contactSection extends React.Component {
 											clicked={() => {
 												window.open(
 													item.href,
-													"_blank",
+													"_blank"
 												);
-											}}
-										>
+											}}>
 											<span className="icon">
 												{item.icon}
 											</span>

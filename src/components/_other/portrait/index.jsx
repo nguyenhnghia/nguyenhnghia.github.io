@@ -1,20 +1,21 @@
 import React from "react";
 
-import imageSrc from "../../../image/portrait.png";
 import { DarkModeContext } from "../../../contexts/darkModeContext/context";
 
 import "./scss/portrait.shared.scss";
 import "./scss/portrait.dark.scss";
 import "./scss/portrait.light.scss";
 
+const portraitSrc = `${process.env.PUBLIC_URL}/image/portrait.png`;
+
 class portrait extends React.Component {
 	componentDidMount() {
 		const portrait = new Image();
-		portrait.src = imageSrc;
-		window[imageSrc] = portrait;
+		portrait.src = portraitSrc;
+		window[portraitSrc] = portrait;
 	}
 	componentWillUnmount() {
-		delete window[imageSrc];
+		delete window[portraitSrc];
 	}
 	render() {
 		return (
@@ -25,7 +26,7 @@ class portrait extends React.Component {
 						: "portrait-light";
 					return (
 						<div className={`portrait ${darkModeClass}`}>
-							<img src={imageSrc} alt="portrait" />
+							<img src={portraitSrc} alt="portrait" />
 						</div>
 					);
 				}}
