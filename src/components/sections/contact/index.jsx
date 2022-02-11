@@ -28,7 +28,7 @@ class contactSection extends React.Component {
 				},
 				{
 					icon: <RiFacebookFill />,
-					href: "https://www.facebook.com/nhnghia.fedev/",
+					href: "https://www.facebook.com/nhnghia.dev/",
 				},
 				{
 					icon: <RiLinkedinFill />,
