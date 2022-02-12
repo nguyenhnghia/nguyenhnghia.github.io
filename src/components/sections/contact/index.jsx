@@ -68,7 +68,7 @@ class contactSection extends React.Component {
 								<Button
 									clicked={() =>
 										window.open(
-											`${process.env.PUBLIC_URL}/files/NguyenHuuNghia.Resume.pdf`
+											`${process.env.PUBLIC_URL}/files/NguyenHuuNghia.Resume.en.pdf`
 										)
 									}>
 									check my resume

@@ -1,5 +1,7 @@
 import React from "react";
 import { DarkModeContext } from "./context";
+
+const darkModeState = window.matchMedia("(prefers-color-scheme: dark)").matches;
 class darkModeContext extends React.Component {
 	constructor(props) {
 		super(props);
@@ -8,9 +10,8 @@ class darkModeContext extends React.Component {
 				darkModeState: !state.darkModeState,
 			}));
 		};
-		const currentTime = new Date().getHours();
 		this.state = {
-			darkModeState: currentTime >= 18 || currentTime <= 5,
+			darkModeState,
 			darkModeChanged: this.handleChange,
 		};
 	}

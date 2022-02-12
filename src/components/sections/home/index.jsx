@@ -41,7 +41,7 @@ class homeSection extends React.Component {
 									extraClasses="button-cta"
 									clicked={() =>
 										window.open(
-											`${process.env.PUBLIC_URL}/files/NguyenHuuNghia.Resume.pdf`
+											`${process.env.PUBLIC_URL}/files/NguyenHuuNghia.Resume.en.pdf`
 										)
 									}>
 									<Text>read my resume</Text>
