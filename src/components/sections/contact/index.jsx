@@ -61,9 +61,8 @@ class contactSection extends React.Component {
                 Looking for a<br /> front-end developer
               </Text>
               <Text extraClasses={`${this.props.blockClassName}_paragraph`}>
-                To land my first job, I'm currently seeking for a front-end
-                developer position. So if you are looking for a front-end
-                developer, why not{" "}
+                I'm currently seeking for a front-end developer position. So if
+                you are looking for a front-end developer, why not{" "}
                 <Button
                   clicked={() =>
                     window.open(
